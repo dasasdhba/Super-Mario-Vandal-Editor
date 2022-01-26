@@ -1,0 +1,7 @@
+sprite=s_bros_fire
+visible=1
+solid=0
+persistent=0
+depth=0
+parent=o_enemy
+mask=s_mask_bros

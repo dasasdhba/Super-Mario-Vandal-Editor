@@ -1,0 +1,7 @@
+sprite=s_brick_fragment
+visible=1
+solid=0
+persistent=0
+depth=-10
+parent=
+mask=

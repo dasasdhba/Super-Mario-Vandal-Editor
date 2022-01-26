@@ -1,0 +1,7 @@
+sprite=s_lavaball
+visible=1
+solid=0
+persistent=0
+depth=-101
+parent=o_enemy
+mask=
