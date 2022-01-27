@@ -89,8 +89,8 @@ if !global.pause
         {
             var death;
             death = instance_create(x, y, o_troopa_green)
-            death.x = x + 31*image_yscale*sind(image_angle)
-            death.y = y + 31*image_yscale*cosd(image_angle)
+            death.x = x + 23*image_yscale*sind(image_angle)
+            death.y = y + 23*image_yscale*cosd(image_angle)
             death.image_angle = image_angle
             death.image_xscale = image_xscale
             death.image_yscale = image_yscale
