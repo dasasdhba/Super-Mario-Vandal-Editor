@@ -2,6 +2,6 @@ sprite=s_solid_mario
 visible=0
 solid=0
 persistent=0
-depth=0
+depth=-99
 parent=o_solid
 mask=

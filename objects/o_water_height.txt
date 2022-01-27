@@ -2,6 +2,6 @@ sprite=s_water_height
 visible=0
 solid=0
 persistent=0
-depth=0
+depth=-101
 parent=
 mask=

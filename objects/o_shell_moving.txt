@@ -2,6 +2,6 @@ sprite=s_shell_moving
 visible=0
 solid=0
 persistent=0
-depth=0
+depth=-1
 parent=o_enemy
 mask=

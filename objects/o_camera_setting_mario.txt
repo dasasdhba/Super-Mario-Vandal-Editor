@@ -2,6 +2,6 @@ sprite=s_camera_setting_mario
 visible=0
 solid=0
 persistent=0
-depth=0
+depth=-10000
 parent=
 mask=
