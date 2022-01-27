@@ -427,7 +427,7 @@ if !global.pause
     y = yorigin
 
     //screen limit
-    if screen_limit && instance_number(o_mario) > 0
+    if screen_limit && instance_number(o_mario) > 0 && o_mario.pipe = 0
     {
         var dir;
         dir = o_mario.gravity_dir
