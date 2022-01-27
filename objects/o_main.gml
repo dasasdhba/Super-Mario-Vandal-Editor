@@ -443,6 +443,8 @@ if !global.pause
                 with (o_mario)
                 {
                     x = mround(x)
+                    if physics_place(x,y,1)
+                        death = true
                     move_v = 0
                     velocity = 0
                     if gravity_state = 0 && !crouch && !crouch_fix && change = 0
@@ -456,6 +458,8 @@ if !global.pause
                 with (o_mario)
                 {
                     x = mround(x)
+                    if physics_place(x,y,1)
+                        death = true
                     move_v = 0
                     velocity = 0
                     if gravity_state = 0 && !crouch && !crouch_fix && change = 0
@@ -475,6 +479,8 @@ if !global.pause
                 with (o_mario)
                 {
                     y = mround(y)
+                    if physics_place(x,y,1)
+                        death = true
                     move_v = 0
                     velocity = 0
                     if gravity_state = 0 && !crouch && !crouch_fix && change = 0
@@ -488,6 +494,8 @@ if !global.pause
                 with (o_mario)
                 {
                     y = mround(y)
+                    if physics_place(x,y,1)
+                        death = true
                     move_v = 0
                     velocity = 0
                     if gravity_state = 0 && !crouch && !crouch_fix && change = 0

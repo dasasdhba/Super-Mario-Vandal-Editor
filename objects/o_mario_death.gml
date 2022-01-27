@@ -18,6 +18,11 @@ move_state = -1
 
 count = 0
 angle = 0
+
+with(o_camera)
+{
+    instance_destroy()
+}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
