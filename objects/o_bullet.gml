@@ -19,6 +19,8 @@ dir = 0
 
 scores = 100
 activate = false
+
+count = 0
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -52,6 +54,12 @@ if !global.pause
     {
         x += velocity*cosd(dir)
         y -= velocity*sind(dir)
+
+        //depth
+        if count < 20
+            count += 1
+        else
+            depth = 0
 
         //animation direction
         image_angle = dir
