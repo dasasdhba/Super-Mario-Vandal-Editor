@@ -46,5 +46,5 @@ applies_to=self
 */
 draw_set_font(global.font_score)
 draw_set_halign(fa_center)
-draw_text_alpha(x,y,string(scores),alpha)
+draw_text_alpha(x-view_xview[0],y-view_yview[0],string(scores),alpha)
 draw_set_halign(fa_left)

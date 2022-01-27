@@ -49,5 +49,5 @@ applies_to=self
 */
 draw_set_font(global.font_life)
 draw_set_halign(fa_center)
-draw_text_alpha(x,y,string(life)+"UP",alpha)
+draw_text_alpha(x-view_xview[0],y-view_yview[0],string(life)+"UP",alpha)
 draw_set_halign(fa_left)
