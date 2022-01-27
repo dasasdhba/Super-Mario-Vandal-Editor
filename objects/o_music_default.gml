@@ -23,6 +23,9 @@ applies_to=self
 */
 if music != "" && music != global.musicname[channel]
 {
+    if FMODInstanceIsPlaying(global.musicplay[channel])
+        FMODInstanceStop(global.musicplay[channel])
+
     global.musicname[channel] = music
     global.musicplay[channel] = audio_music_play(music,-1)
 
