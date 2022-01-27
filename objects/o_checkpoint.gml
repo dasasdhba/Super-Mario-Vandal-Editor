@@ -11,24 +11,6 @@ image_speed = 0
 activate_speed = 0.1
 
 activate = false
-if global.checkpoint > 0
-{
-    var i;
-    for(i=0;i<global.checkpoint;i+=1)
-    {
-        if id = global.checkid[i]
-        {
-            activate = true
-            if i = global.checkpoint - 1
-            {
-                o_mario.x = x
-                o_mario.y = y
-                o_mario.image_angle = image_angle
-                o_mario.gravity_dir = image_angle + 270
-            }
-        }
-    }
-}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -57,6 +39,31 @@ if !global.pause
     else
         image_play(1,2,activate_speed)
 
+}
+#define Other_4
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+//mario reborn
+if global.checkpoint > 0
+{
+    var i;
+    for(i=0;i<global.checkpoint;i+=1)
+    {
+        if id = global.checkid[i]
+        {
+            activate = true
+            if i = global.checkpoint - 1
+            {
+                o_mario.x = x
+                o_mario.y = y
+                o_mario.image_angle = image_angle
+                o_mario.gravity_dir = image_angle + 270
+            }
+        }
+    }
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION
