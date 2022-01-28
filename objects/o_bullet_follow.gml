@@ -11,6 +11,7 @@ def_bump = -1
 def_shell = -1
 def_star = -1
 def_lava = -1
+turn = false
 
 sprite_fix_offset(17,14)
 image_speed = 0.5
