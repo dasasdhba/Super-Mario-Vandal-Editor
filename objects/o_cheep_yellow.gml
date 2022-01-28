@@ -20,6 +20,7 @@ move_v = 0
 move_dir = 0
 
 velocity = 1.5
+range = 800
 
 dir = -1
 
@@ -40,7 +41,7 @@ if !global.pause
     }
     else
     {
-        if instance_number(o_mario) > 0
+        if instance_number(o_mario) > 0 && o_mario.x > x-range && o_mario.x < x+range && o_mario.y > y-range && o_mario.y < y+range
         {
             move_v = velocity
             move_dir = point_direction(x,y,o_mario.x,o_mario.y)
