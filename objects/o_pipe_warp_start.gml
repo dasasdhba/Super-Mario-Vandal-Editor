@@ -8,7 +8,7 @@ instance_init()
 pause = -1
 
 ID = 0
-#define Step_0
+#define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
