@@ -1,6 +1,7 @@
 //background_clear()
 global.background = 0
 global.bg_num = 0
+global.fg_num = 0
 var i;
 for(i=0;i<8;i+=1)
 {

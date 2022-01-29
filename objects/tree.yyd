@@ -171,6 +171,7 @@
 		|o_brick_fragment
 +system
 	|o_main
+	|o_foreground
 	|o_camera
 	+parents
 		|o_enemy

@@ -8,12 +8,10 @@ applies_to=self
 instance_init()
 physics_init()
 
+sprite_fix_offset(16,31)
+
 phy_type = 1
 gravity_dir = image_angle+270
-
-//fix the position
-x += 16*image_xscale*cosd(image_angle) + 31*image_yscale*sind(image_angle)
-y -= 16*image_xscale*sind(image_angle) - 31*image_yscale*cosd(image_angle)
 
 //argument for Mario
 

@@ -6,14 +6,48 @@ applies_to=self
 */
 instance_init()
 
-sprite_fix_offset(44,111)
 image_speed = 0
 activate_speed = 0.1
 
 activate = false
 
+//mario reborn
 if global.checkpoint < 0
-    global.pause = true
+{
+    global.checkpoint *= -1
+    var i;
+    for(i=0;i<global.checkpoint;i+=1)
+    {
+        with(o_checkpoint)
+        {
+            if id = global.checkid[i]
+            {
+                activate = true
+                if i = global.checkpoint - 1
+                {
+                    sprite_fix_offset(44,111)
+                    o_mario.x = x
+                    o_mario.y = y
+                    o_mario.image_angle = image_angle
+                    o_mario.gravity_dir = image_angle + 270
+                    o_mario.sprite_index = sprite_duplicate_offset(16,31,o_mario.sprite_index)
+                    //disable default music and background
+                    with(o_mario)
+                    {
+                        if place_meeting(x,y,o_music)
+                            with(o_music_default)
+                                instance_destroy()
+
+                        if place_meeting(x,y,o_background)
+                            with(o_background_default)
+                                instance_destroy()
+                    }
+
+                }
+            }
+        }
+    }
+}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -42,33 +76,6 @@ if !global.pause
     else
         image_play(1,2,activate_speed)
 
-}
-#define Step_1
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-//mario reborn
-if global.checkpoint < 0
-{
-    global.checkpoint *= -1
-    var i;
-    for(i=0;i<global.checkpoint;i+=1)
-    {
-        if id = global.checkid[i]
-        {
-            activate = true
-            if i = global.checkpoint - 1
-            {
-                o_mario.x = x
-                o_mario.y = y
-                o_mario.image_angle = image_angle
-                o_mario.gravity_dir = image_angle + 270
-            }
-        }
-    }
-    global.pause = false
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION

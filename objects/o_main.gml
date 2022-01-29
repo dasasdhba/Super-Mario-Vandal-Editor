@@ -53,6 +53,7 @@ global.music_instance_list = ds_list_create()
 
 //background
 background_clear()
+instance_create(0,0,o_foreground)
 
 //sprite list
 global.sprite_list = ds_list_create()
@@ -91,15 +92,10 @@ global.oneoff = false
 //setting init
 global.setting_file = ".\Data\Save\setting.ini"
 setting_init()
-#define Step_0
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-//enable the camera
-if instance_number(o_mario) > 0 && instance_number(o_camera) = 0
-    instance_create(o_mario.x,o_mario.y-14,o_camera)
+
+//room refresh
+global.room_refresh = false
+global.room_screen = 0
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -123,6 +119,14 @@ if !global.pause
     xorigin = round(x)
     yorigin = round(y)
 }
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+//enable the camera
+if instance_number(o_mario) > 0 && instance_number(o_camera) = 0
+    instance_create(o_mario.x,o_mario.y-14,o_camera)
 #define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -636,6 +640,17 @@ room_caption = "Super Mario Vandal Editor"
 //check whether the MD5 is right
 if !md5_check()
     game_end()
+#define Other_5
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+if room != r_start && room != r_restart
+{
+    global.room_refresh = true
+    global.room_screen = sprite_create_from_screen(0, 0, view_wport[0], view_hport[0], 0, 0, 0, 0)
+}
 #define Other_30
 /*"/*'/**//* YYD ACTION
 lib_id=1
