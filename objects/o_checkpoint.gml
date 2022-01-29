@@ -9,8 +9,6 @@ instance_init()
 image_speed = 0
 activate_speed = 0.1
 
-activate = false
-
 //mario reborn
 if global.checkpoint < 0
 {
@@ -54,6 +52,9 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+if !variable_local_exists("activate")
+    activate = false
+
 if !global.pause
 {
     //activate
