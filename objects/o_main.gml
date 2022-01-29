@@ -650,6 +650,7 @@ if room != r_start && room != r_restart
 {
     global.room_refresh = true
     global.room_screen = sprite_create_from_screen(0, 0, view_wport[0], view_hport[0], 0, 0, 0, 0)
+    o_foreground.depth = -10000000
 }
 #define Other_30
 /*"/*'/**//* YYD ACTION

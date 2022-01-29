@@ -9,6 +9,7 @@ if global.room_refresh
 {
     draw_sprite(global.room_screen, 0, 0, 0)
     global.room_refresh = false
+    depth = -999
 }
 
 //draw foreground manually
