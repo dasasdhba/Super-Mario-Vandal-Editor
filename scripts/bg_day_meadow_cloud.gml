@@ -1,8 +1,8 @@
 //bg_day_meadow_cloud()
 var _p1,_p2,_p3;
 _p1 = parallax_x(0.7)
-_p2 = parallax_x(0.5)
-_p3 = parallax_x(0.3)
+_p2 = parallax_x(0.3)
+_p3 = parallax_x(0.5)
 
 global.back_vx[2] += 0.2
 global.back_vx[3] += 0.4
