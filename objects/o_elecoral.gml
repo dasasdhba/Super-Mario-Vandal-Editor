@@ -4,12 +4,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-event_user(0)
-turn = false
-invincible = true
-def_stomp = -1
-def_lava = -1
-
 image_speed = 0
 
 var s;
@@ -37,7 +31,7 @@ if !global.pause
     if count >= 32.5
         count = 0
 
-    event_user(1)
+    hurt_mario()
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION

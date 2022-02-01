@@ -64,13 +64,11 @@ applies_to=self
 hurt_flag = false
 if hurt
 {
-    var mario;
-    mario = instance_place(x, y, o_mario)
-    if mario && !mario.invincible && o_mario.pipe = 0
+    if place_meeting_round(x, y, o_mario) && !o_mario.invincible && o_mario.pipe = 0
     {
-        if def_stomp < 0 || place_meeting(x+head*cosd(mario.gravity_dir), y-head*sind(mario.gravity_dir), mario)
+        if def_stomp < 0 || place_meeting_round(x+head*cosd(o_mario.gravity_dir), y-head*sind(o_mario.gravity_dir), o_mario)
         {
-            mario.hurt = mario.hurt_time
+            o_mario.hurt = o_mario.hurt_time
             hurt_flag = true
         }
     }
@@ -80,7 +78,7 @@ if hurt
 if turn && !turn_flag && move_v > 0
 {
     var enemy_obj;
-    enemy_obj = instance_place(x, y, o_enemy)
+    enemy_obj = instance_place_round(x, y, o_enemy)
     if enemy_obj && enemy_obj.turn
     {
         move_dir += 180
@@ -93,19 +91,17 @@ if turn && !turn_flag && move_v > 0
     }
 }
 
-if turn_flag && !place_meeting(x, y, o_enemy)
+if turn_flag && !place_meeting_round(x, y, o_enemy)
     turn_flag = false
 
 //attacked
 if !invincible
 {
-    if def_stomp >= 0 && ( mario.star = 0 || def_star <= 0 )
+    if def_stomp >= 0 && ( o_mario.star = 0 || def_star <= 0 )
     {
-        var mario;
-        mario = instance_place(x, y, o_mario)
-        if mario && mario.gravity_state = 1 && mario.gravity_v >= 0 && !place_meeting(x+head*cosd(mario.gravity_dir), y-head*sind(mario.gravity_dir), mario)
+        if place_meeting_round(x, y, o_mario) && o_mario.gravity_state = 1 && o_mario.gravity_v >= 0 && !place_meeting_round(x+head*cosd(o_mario.gravity_dir), y-head*sind(o_mario.gravity_dir), o_mario)
         {
-            mario.stomp = true
+            o_mario.stomp = true
             if def_stomp > 0
                 atk = 1
         }
@@ -114,7 +110,7 @@ if !invincible
     if def_fireball >= 0
     {
         var fireball;
-        fireball = instance_place(x, y, o_fireball_mario)
+        fireball = instance_place_round(x, y, o_fireball_mario)
         if fireball
         {
             fireball.explode = true
@@ -126,7 +122,7 @@ if !invincible
     if def_beet >= 0
     {
         var beet;
-        beet = instance_place(x, y, o_beet_mario)
+        beet = instance_place_round(x, y, o_beet_mario)
         if beet && !beet.explode
         {
             beet.bounce = true
@@ -135,18 +131,16 @@ if !invincible
         }
     }
 
-    if def_bump > 0 && instance_place(x, y, o_bump)
+    if def_bump > 0 && place_meeting_round(x, y, o_bump)
         atk = 4
 
     if def_star > 0
     {
-        var mario;
-        mario = instance_place(x, y, o_mario)
-        if mario && mario.star > 0 && mario.pipe = 0
+        if place_meeting_round(x, y, o_mario) && o_mario.star > 0 && o_mario.pipe = 0
         {
             atk = 6
-            mario.star_count += 1
-            mario.star_count *= -1
+            o_mario.star_count += 1
+            o_mario.star_count *= -1
         }
     }
 
@@ -156,7 +150,7 @@ if !invincible
 if shell_atk
 {
     var kick_obj;
-    kick_obj = instance_place(x, y, o_enemy)
+    kick_obj = instance_place_round(x, y, o_enemy)
     if kick_obj && kick_obj.def_shell > 0 && !kick_obj.invincible
     {
         if invincible
@@ -207,7 +201,7 @@ if shell_atk
 if physics && solid_cruch && def_crush > 0
     atk = 7
 
-if def_lava > 0 && place_meeting(x, y, o_lava)
+if def_lava > 0 && place_meeting_round(x, y, o_lava)
     atk = 7
 
 //shell count

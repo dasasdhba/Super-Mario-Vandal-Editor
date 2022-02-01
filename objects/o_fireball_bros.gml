@@ -4,12 +4,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-event_user(0)
-turn = false
-invincible = true
-def_stomp = -1
-def_lava = -1
-
 instance_init()
 physics_init()
 
@@ -44,7 +38,8 @@ if !global.pause
     if !explode
         physics_step()
 
-    event_user(1)
+    var hurt_flag;
+    hurt_flag = hurt_mario()
     if hurt_flag
         explode = true
 

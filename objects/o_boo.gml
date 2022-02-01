@@ -4,12 +4,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-event_user(0)
-turn = false
-invincible = true
-def_stomp = -1
-def_lava = -1
-
 sprite_fix_offset(16,31)
 image_speed = 0
 
@@ -103,7 +97,7 @@ if !global.pause
                 image_alpha = 1
         }
 
-        event_user(1)
+        hurt_mario()
     }
 
 }

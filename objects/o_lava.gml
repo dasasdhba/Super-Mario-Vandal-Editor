@@ -14,12 +14,7 @@ action_id=603
 applies_to=self
 */
 if !global.pause
-{
-    var mario;
-    mario = instance_place(x,y,o_mario)
-    if mario && mario.pipe = 0 && !global.debug_inv
-        mario.death = true
-}
+    hurt_mario(1)
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

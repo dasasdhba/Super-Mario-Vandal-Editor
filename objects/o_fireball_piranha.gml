@@ -4,12 +4,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-event_user(0)
-turn = false
-invincible = true
-def_stomp = -1
-def_lava = -1
-
 instance_init()
 physics_init()
 
@@ -45,7 +39,7 @@ if !global.pause
     physics_step()
     x += xspeed
 
-    event_user(1)
+    hurt_mario()
 
     //fall
     var f_height;

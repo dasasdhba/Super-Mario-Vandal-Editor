@@ -303,6 +303,8 @@
 		|gravity_hit_block_up
 		|gravity_hit_block_down
 		|move_hit_block
+	+mario
+		|hurt_mario
 	+moving_block
 		|moving_init
 		|moving_step

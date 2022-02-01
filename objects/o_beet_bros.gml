@@ -4,12 +4,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-event_user(0)
-turn = false
-invincible = true
-def_stomp = -1
-def_lava = -1
-
 instance_init()
 physics_init()
 phy_type = 2
@@ -46,7 +40,8 @@ if !global.pause
     gravity_hit_block_down()
     move_hit_block()
 
-    event_user(1)
+    var hurt_flag;
+    hurt_flag = hurt_mario()
     if hurt_flag && !explode
         bounce = true
 

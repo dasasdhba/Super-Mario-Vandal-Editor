@@ -70,11 +70,14 @@ if !global.pause && !bonus_place
             move_v = velocity
             physics_step()
 
-            if place_meeting_round(x,y,o_mario) && o_mario.pipe = 0 && !global.debug_inv
+            var mario_death;
+            mario_death = hurt_mario(1)
+            if mario_death
             {
-                o_mario.death = true
-
-                instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2, o_boom)
+                var boom;
+                boom = instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2, o_boom)
+                boom.image_xscale = image_xscale
+                boom.image_yscale = image_yscale
                 instance_destroy()
             }
 
