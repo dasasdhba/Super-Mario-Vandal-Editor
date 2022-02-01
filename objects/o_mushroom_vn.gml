@@ -70,7 +70,7 @@ if !global.pause && !bonus_place
             move_v = velocity
             physics_step()
 
-            if place_meeting_round(x,y,o_mario) && o_mario.pipe = 0
+            if place_meeting_round(x,y,o_mario) && o_mario.pipe = 0 && !global.debug_inv
             {
                 o_mario.death = true
 

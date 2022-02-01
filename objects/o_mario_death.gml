@@ -51,18 +51,20 @@ if !global.pause
     if count >= 35
         physics_step()
 
-    if global.life = 0 && count = 150
-        instance_create(x,y,o_gameover)
+    if count = 150 && is_real(global.life)
+        if global.life = 0
+            instance_create(x,y,o_gameover)
 
-    if global.life > 0 && count = 200
+    if count = 200 && instance_number(o_gameover) = 0
     {
         FMODAllStop()
         global.mario = 0
         global.time = -1
         global.oneoff = true
-        global.life -= 1
         global.deathroom = room
         global.checkpoint *= -1
+        if is_real(global.life)
+            global.life -= 1
         room_goto(r_restart)
     }
 

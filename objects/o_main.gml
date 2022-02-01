@@ -96,6 +96,137 @@ setting_init()
 //room refresh
 global.room_refresh = false
 global.room_screen = 0
+
+//debug
+global.debug_inv = false
+global.debug_cam = false
+global.debug_store = 0
+#define Step_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+//debug function
+if debug_mode && !global.pause
+{
+    //infinity lives
+    global.life = "DEBUG"
+
+    //switch the state of mario
+    if keyboard_check_pressed(ord("1"))
+        global.mario = 0
+    if keyboard_check_pressed(ord("2"))
+        global.mario = 1
+    if keyboard_check_pressed(ord("3"))
+        global.mario = 2
+    if keyboard_check_pressed(ord("4"))
+        global.mario = 3
+    if keyboard_check_pressed(ord("5"))
+        global.mario = 4
+
+    //mario invincible
+    if keyboard_check_pressed(ord("6"))
+    {
+        global.debug_inv = 1 - global.debug_inv
+        o_mario.invincible = 1 - o_mario.invincible
+        o_mario.image_alpha = 1
+    }
+    if global.debug_inv
+    {
+        o_mario.image_alpha = 0.5
+        o_mario.invincible = true
+    }
+
+    //view open
+    if keyboard_check_pressed(ord("7"))
+    {
+        o_camera.L = 0
+        o_camera.R = room_width
+        o_camera.T = 0
+        o_camera.B = room_height
+    }
+
+    //view move
+    if keyboard_check_pressed(ord("8"))
+    {
+        if !global.debug_cam
+            global.debug_store = o_camera.screen_limit
+        else
+            o_camera.screen_limit = global.debug_store
+
+        global.debug_cam = 1 - global.debug_cam
+        o_mario.control = 1 - o_mario.control
+        o_mario.fall = 1 - o_mario.fall
+    }
+    if global.debug_cam
+    {
+        o_mario.control = false
+        o_mario.fall = false
+        o_camera.screen_limit = false
+
+        var _h,_v,_s;
+        _h = keyboard_check(global.key_right) - keyboard_check(global.key_left)
+        _v = keyboard_check(global.key_down) - keyboard_check(global.key_up)
+        _s = mouse_wheel_down() - mouse_wheel_up()
+        o_camera.xoffset += 10*_h
+        o_camera.yoffset += 10*_v
+        o_camera.scale_target += 0.1*_s
+        o_camera.scale_v = 0.1
+    }
+
+    //previous checkpoint
+    if keyboard_check_pressed(ord("9"))
+    {
+        if global.checkpoint > 1
+        {
+            global.checkpoint -= 1
+            with(o_checkpoint)
+            {
+                if id = global.checkid[global.checkpoint-1]
+                {
+                    sprite_fix_offset(44,111)
+                    o_mario.x = x
+                    o_mario.y = y
+                    o_mario.angle = image_angle
+                    o_mario.gravity_dir = image_angle + 270
+                }
+                else if id = global.checkid[global.checkpoint]
+                    activate = false
+            }
+        }
+    }
+
+    //next checkpoint
+    if keyboard_check_pressed(ord("0"))
+    {
+        globalvar _debug_warp;
+        _debug_warp = false
+        with(o_checkpoint)
+        {
+            if !_debug_warp && !activate
+            {
+                sprite_fix_offset(44,111)
+                activate = true
+                _debug_warp = true
+                o_mario.x = x
+                o_mario.y = y
+                o_mario.angle = image_angle
+                o_mario.gravity_dir = image_angle + 270
+                global.checkid[global.checkpoint] = id
+                global.checkpoint += 1
+            }
+        }
+    }
+
+    //click to move mario
+    if mouse_check_button_pressed(mb_left)
+    {
+        o_mario.x = mouse_x
+        o_mario.y = mouse_y
+    }
+
+}
 #define Step_1
 /*"/*'/**//* YYD ACTION
 lib_id=1

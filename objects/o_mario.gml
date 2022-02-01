@@ -1026,7 +1026,7 @@ applies_to=self
 if !global.pause
 {
     //fall
-    if pipe = 0 && !pass && fall
+    if pipe = 0 && !pass && fall && !global.debug_inv
         if ( ( gravity_dir >= 225 && gravity_dir <= 315 ) && y >= view_yview[0] + view_hview[0] + 64*abs(image_yscale) )
         || ( ( gravity_dir >= 45 && gravity_dir <= 135 ) && y <= view_yview[0] - 64*abs(image_yscale) )
         || ( ( gravity_dir >= 135 && gravity_dir <= 225 ) && x <= view_xview[0] - 64*abs(image_yscale) )
@@ -1034,7 +1034,7 @@ if !global.pause
             death = true
 
     //crush
-    if solid_crush
+    if solid_crush && !global.debug_inv
         death = true
 
     //hurt

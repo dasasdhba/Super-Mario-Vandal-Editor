@@ -17,7 +17,7 @@ if !global.pause
 {
     var mario;
     mario = instance_place(x,y,o_mario)
-    if mario && mario.pipe = 0
+    if mario && mario.pipe = 0 && !global.debug_inv
         mario.death = true
 }
 #define Draw_0

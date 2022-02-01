@@ -20,7 +20,8 @@ if !global.pause
 {
     if count = 0
     {
-        global.life += life
+        if is_real(global.life)
+            global.life += life
         audio_sound_play("life")
     }
 

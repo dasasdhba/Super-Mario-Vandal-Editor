@@ -146,7 +146,11 @@ if !draw_stop
     draw_set_alpha(1)
     draw_set_color(c_white)
 
-    draw_text(xplayer, yplayer, player+" ~ "+string(global.life))
+    if is_real(global.life)
+        draw_text(xplayer, yplayer, player+" ~ "+string(global.life))
+    else
+        draw_text(xplayer, yplayer, player+" ~ "+global.life)
+
     draw_text(xscore, yscore, string(global.scores))
     draw_text(xcoin, ycoin, string_char_at("{|}",coin_ani+1)+" ~ "+string(global.coin))
 
