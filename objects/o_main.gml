@@ -191,6 +191,11 @@ if debug_mode && !global.pause
                     o_mario.y = y
                     o_mario.angle = image_angle
                     o_mario.gravity_dir = image_angle + 270
+
+                    o_camera.L = 0
+                    o_camera.R = room_width
+                    o_camera.T = 0
+                    o_camera.B = room_height
                 }
                 else if id = global.checkid[global.checkpoint]
                     activate = false
@@ -216,6 +221,11 @@ if debug_mode && !global.pause
                 o_mario.gravity_dir = image_angle + 270
                 global.checkid[global.checkpoint] = id
                 global.checkpoint += 1
+
+                o_camera.L = 0
+                o_camera.R = room_width
+                o_camera.T = 0
+                o_camera.B = room_height
             }
         }
     }
