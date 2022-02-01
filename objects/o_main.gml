@@ -136,6 +136,7 @@ if debug_mode && !global.pause
     {
         o_mario.image_alpha = 0.5
         o_mario.invincible = true
+        o_mario.solid_crush = false
     }
 
     //view open
