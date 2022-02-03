@@ -111,7 +111,7 @@ applies_to=self
 if debug_mode && !global.pause
 {
     //infinity lives
-    global.life = "DEBUG"
+    global.life = "INF"
 
     //switch the state of mario
     if keyboard_check_pressed(ord("1"))
@@ -152,9 +152,17 @@ if debug_mode && !global.pause
     if keyboard_check_pressed(ord("8"))
     {
         if !global.debug_cam
-            global.debug_store = o_camera.screen_limit
+        {
+            global.debug_store[0] = o_camera.screen_limit
+            global.debug_store[1] = o_camera.xoffset
+            global.debug_store[2] = o_camera.yoffset
+        }
         else
-            o_camera.screen_limit = global.debug_store
+        {
+            o_camera.screen_limit = global.debug_store[0]
+            o_camera.xoffset = global.debug_store[1]
+            o_camera.yoffset = global.debug_store[2]
+        }
 
         global.debug_cam = 1 - global.debug_cam
         o_mario.control = 1 - o_mario.control

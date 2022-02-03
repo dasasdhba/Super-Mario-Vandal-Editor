@@ -89,7 +89,7 @@ if !global.pause
             global.time -= 1
         }
 
-        if global.time = 0
+        if global.time = 0 && !debug_mode
             o_mario.death = true
 
         if global.time <= 100 && shake_count = 0
