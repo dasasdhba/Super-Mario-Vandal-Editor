@@ -631,7 +631,7 @@ if !global.pause
             if p_dir = ( m_dir + 90 ) mod 360 && right && !left && ( gravity_state = 0 || gravity_water )
             {
                 pipe = 1
-                image_angle = p_dir
+                image_angle = p_dir mod 360
                 dir = 1
                 if p_dir = 0
                 {
@@ -656,7 +656,9 @@ if !global.pause
 
                 pipe_count = 0
                 gravity_state = -1
+                gravity_v = 0
                 move_state = -1
+                move_v = 0
                 velocity = 0
                 audio_sound_play("powerdown")
             }
@@ -674,7 +676,7 @@ if !global.pause
             if p_dir = ( m_dir + 180 ) mod 360 && up && gravity_state = 1 && gravity_v <= 0
             {
                 pipe = 2
-                image_angle = m_dir + 90
+                image_angle = ( p_dir + 270 ) mod 360
                 if p_dir = 0
                 {
                     x = enter.R - ( bbox_right - x )
@@ -698,7 +700,9 @@ if !global.pause
 
                 pipe_count = 0
                 gravity_state = -1
+                gravity_v = 0
                 move_state = -1
+                move_v = 0
                 velocity = 0
                 audio_sound_play("powerdown")
             }
@@ -707,7 +711,7 @@ if !global.pause
             if p_dir = ( m_dir + 270 ) mod 360 && left && !right && ( gravity_state = 0 || gravity_water )
             {
                 pipe = 3
-                image_angle = p_dir + 180
+                image_angle = ( p_dir + 180 ) mod 360
                 dir = -1
                 if p_dir = 0
                 {
@@ -732,7 +736,9 @@ if !global.pause
 
                 pipe_count = 0
                 gravity_state = -1
+                gravity_v = 0
                 move_state = -1
+                move_v = 0
                 velocity = 0
                 audio_sound_play("powerdown")
             }
@@ -750,7 +756,7 @@ if !global.pause
             if p_dir = m_dir mod 360 && down && gravity_state = 0
             {
                 pipe = 4
-                image_angle = m_dir + 90
+                image_angle = ( p_dir + 90 ) mod 360
                 if p_dir = 0
                 {
                     x = enter.R
@@ -774,7 +780,9 @@ if !global.pause
 
                 pipe_count = 0
                 gravity_state = -1
+                gravity_v = 0
                 move_state = -1
+                move_v = 0
                 velocity = 0
                 crouch = false
                 audio_sound_play("powerdown")
@@ -1011,7 +1019,6 @@ if !global.pause
 
             pipe = 0
             move_state = 0
-            velocity = 0
         }
 
     }
