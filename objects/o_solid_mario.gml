@@ -7,4 +7,6 @@ applies_to=self
 instance_init()
 pause = -1
 
+sprite_fix_offset(16,16)
+
 type = 1
