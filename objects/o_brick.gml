@@ -100,6 +100,7 @@ if !global.pause
     //hit
     if hit && !create
     {
+        hidden = false
 
         if item
         {

@@ -86,6 +86,7 @@ if !global.pause
     if hit && !create
     {
         create = true
+        hidden = false
         visible = true
         type = 0
 

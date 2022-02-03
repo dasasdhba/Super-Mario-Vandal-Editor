@@ -100,6 +100,7 @@ global.room_screen = 0
 //debug
 global.debug_inv = false
 global.debug_cam = false
+global.debug_box = false
 global.debug_store = 0
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -238,8 +239,41 @@ if debug_mode && !global.pause
         }
     }
 
+    //show hitbox
+    if keyboard_check_pressed(vk_tab)
+    {
+        global.debug_box = 1 - global.debug_box
+
+        if global.debug_box
+        {
+            o_solid.visible = true
+            o_platform.visible = true
+            o_bonus.visible = true
+        }
+        else
+        {
+            o_solid.visible = false
+            o_platform.visible = false
+            o_elecoral.visible = true
+            o_cannon.visible = true
+            o_cannon_follow.visible = true
+            o_solid_moving.visible = true
+            o_platform_moving.visible = true
+            with(o_block)
+            {
+                if !hidden
+                    visible = true
+            }
+            with(o_bonus)
+            {
+                if bonus_place
+                    visible = false
+            }
+        }
+    }
+
     //click to move mario
-    if mouse_check_button_pressed(mb_left)
+    if mouse_check_button_pressed(mb_right)
     {
         o_mario.x = mouse_x
         o_mario.y = mouse_y
