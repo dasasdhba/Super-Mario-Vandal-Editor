@@ -5,12 +5,6 @@ action_id=603
 applies_to=self
 */
 image_speed = 0
-
-var s;
-s = instance_create(x+2,y+1,o_solid)
-s.image_xscale = (29*image_xscale - 2)/32.0
-s.image_yscale = (32*image_yscale - 2)/32.0
-
 instance_init()
 pause = -1
 
@@ -31,7 +25,8 @@ if !global.pause
     if count >= 32.5
         count = 0
 
-    hurt_mario()
+    if ( place_meeting_round(x+1,y,o_mario) || place_meeting_round(x-1,y,o_mario) || place_meeting_round(x,y+1,o_mario) || place_meeting_round(x,y-1,o_mario) ) && !o_mario.invincible && o_mario.pipe = 0
+        o_mario.hurt = o_mario.hurt_time
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION

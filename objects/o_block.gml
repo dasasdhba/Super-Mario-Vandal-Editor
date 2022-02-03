@@ -5,6 +5,8 @@ action_id=603
 applies_to=self
 */
 instance_init()
+sprite_fix_offset(16,16)
+
 if !variable_local_exists("type")
     type = 0
 
@@ -51,7 +53,7 @@ if !global.pause
             hit = true
 
             var b;
-            b = instance_create(x+16*cosd(image_angle),y-16*sind(image_angle),o_bump)
+            b = instance_create(x-16*image_yscale*sind(image_angle),y-16*image_yscale*cosd(image_angle),o_bump)
             b.image_xscale = image_xscale
             b.image_angle = image_angle
         }
@@ -61,7 +63,7 @@ if !global.pause
             type = 0
 
             var b;
-            b = instance_create(x+16*cosd(image_angle),y-16*sind(image_angle),o_bump)
+            b = instance_create(x-16*image_yscale*sind(image_angle),y-16*image_yscale*cosd(image_angle),o_bump)
             b.image_xscale = image_xscale
             b.image_angle = image_angle
 
@@ -91,7 +93,9 @@ if !global.pause
         {
             audio_sound_play("coin")
             var c;
-            c = instance_create(x+16*(cosd(image_angle)-sind(image_angle)), y-16*(sind(image_angle)+cosd(image_angle)), o_coin_effect)
+            c = instance_create(x-32*image_yscale*sind(image_angle),y-32*image_yscale*cosd(image_angle), o_coin_effect)
+            c.image_xscale = image_xscale
+            c.image_yscale = image_yscale
             c.image_angle = image_angle
             c.gravity_dir = image_angle - 90
             c.coin = coin
@@ -103,7 +107,11 @@ if !global.pause
             {
                 var m;
                 m = instance_create(x,y,o_mushroom_red)
+                m.x = item.x
+                m.y = item.y
                 m.activate = true
+                m.image_xscale = item.image_xscale
+                m.image_yscale = item.image_yscale
                 m.image_angle = item.image_angle
                 m.gravity_dir = item.gravity_dir
                 m.depth = depth + 1
