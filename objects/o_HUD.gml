@@ -72,10 +72,7 @@ if !global.pause
         if time <= 0
             global.time = -1
         else if global.time < 0
-        {
             global.time = time
-            time *= -1
-        }
 
         time_init = true
     }
