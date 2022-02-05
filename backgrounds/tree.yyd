@@ -6,6 +6,7 @@
 		|tile_SMWP_1
 		|tile_SMWP_2
 		|tile_SMWP_3
+		|tile_SMWP_import
 +background
 	+sky
 		|back_sky_day
