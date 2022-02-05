@@ -567,6 +567,14 @@ if !global.pause
     if gradual_y && abs(y-ytarget) <= gradual_ymin
         gradual_y = false
 
+    //self moving mode
+    if mode = 1
+    {
+        var xo, yo;
+        xo = x
+        yo = y
+    }
+
     //shake
     var xorigin,yorigin;
     xorigin = x
@@ -696,6 +704,40 @@ if !global.pause
 
     }
 
+    //self moving mode
+    if mode = 1
+    {
+        x = xo
+        y = yo
+    }
+
+}
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=o_camera_auto
+*/
+//event for o_camera_auto
+if !global.pause
+{
+    if first && !activate
+    {
+        activate = true
+        first = false
+        event_user(1)
+    }
+
+    if activate && next != noone
+    {
+        if ( cosd(o_camera.move_dir) != 0 && o_camera.x*cosd(o_camera.move_dir) >= next.x*cosd(o_camera.move_dir) )
+        || ( sind(o_camera.move_dir) != 0 && o_camera.y*sind(o_camera.move_dir) <= next.y*sind(o_camera.move_dir) )
+        {
+            activate = false
+            next.activate = true
+            with(next)
+                event_user(1)
+        }
+    }
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1

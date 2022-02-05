@@ -5,6 +5,7 @@
 			|s_camera_setting_mario
 			|s_camera_start
 			|s_camera_end
+			|s_camera_auto
 		+pipe
 			|s_pipe_enter
 			|s_pipe_exit

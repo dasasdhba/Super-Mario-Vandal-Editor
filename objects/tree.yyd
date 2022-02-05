@@ -1,10 +1,11 @@
 +editor
 	+marks
 		+camera
-			|o_camera_setting
 			|o_camera_setting_mario
+			|o_camera_setting
 			|o_camera_start
 			|o_camera_end
+			|o_camera_auto
 		+pipe
 			|o_pipe_enter
 			|o_pipe_exit

@@ -9,10 +9,20 @@ pause = -1
 
 ID = 0
 
-L = 0
-R = 0
-T = 0
-B = 0
+L = x
+T = y
+globalvar _self;
+_self = id
+with(o_camera_end)
+{
+    if ID = _self.ID
+    {
+        _self.R = x + 32
+        _self.B = y + 32
+        instance_destroy()
+    }
+}
+
 once = false
 #define Step_1
 /*"/*'/**//* YYD ACTION
@@ -34,19 +44,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-L = x
-T = y
-globalvar _self;
-_self = id
-with(o_camera_end)
-{
-    if ID = _self.ID
-    {
-        _self.R = x + 32
-        _self.B = y + 32
-    }
-}
-
 if o_mario.bbox_left >= L && o_mario.bbox_right <= R && o_mario.bbox_top >= T && o_mario.bbox_bottom <= B
 {
     o_camera.L = L

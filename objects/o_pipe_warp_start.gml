@@ -26,6 +26,15 @@ if !global.pause && o_mario.pipe = 5 && place_meeting(x,y,o_mario)
             o_mario.y = y
             with(o_camera_start)
                 event_user(0)
+            with(o_camera_auto)
+            {
+                if activate = true
+                {
+                    activate = false
+                    o_camera.mode = 0
+                }
+                event_user(0)
+            }
         }
     }
 }
