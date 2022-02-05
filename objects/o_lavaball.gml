@@ -72,7 +72,18 @@ if !global.pause
         }
     }
     else
+    {
         hurt_mario()
+
+        //ice_break
+        globalvar _self;
+        _self = id
+        with(o_block_ice)
+        {
+            if place_meeting(x,y,_self)
+                destroy = true
+        }
+    }
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION

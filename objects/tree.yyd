@@ -133,6 +133,8 @@
 		|o_beet
 		|o_lui
 		|o_star
+	+block
+		|o_block_ice
 	+moving_block
 		+moving_platform
 			|o_platform_moving
@@ -192,6 +194,7 @@
 		|o_coin_effect
 		|o_star_effect
 		|o_brick_fragment
+		|o_ice_fragment
 +system
 	|o_main
 	|o_foreground

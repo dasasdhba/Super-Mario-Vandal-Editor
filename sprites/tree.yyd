@@ -134,6 +134,8 @@
 		|s_beet
 		|s_lui
 		|s_star
+	+block
+		|s_block_ice
 	+moving_block
 		+moving_platform
 			|s_platform_moving
@@ -191,6 +193,7 @@
 		|s_spray_water
 		|s_spray_lava
 		|s_brick_fragment
+		|s_ice_fragment
 		|s_coin_effect
 		|s_star_effect
 	+system

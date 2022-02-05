@@ -255,6 +255,7 @@ if debug_mode && !global.pause
             o_solid.visible = false
             o_platform.visible = false
             o_elecoral.visible = true
+            o_block_ice.visible = true
             o_cannon.visible = true
             o_cannon_follow.visible = true
             o_solid_moving.visible = true

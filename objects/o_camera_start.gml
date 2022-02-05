@@ -26,9 +26,10 @@ if !global.pause
     L = x
     T = y
     globalvar _self;
+    _self = id
     with(o_camera_end)
     {
-        if ID = _ID
+        if ID = _self.ID
         {
             _self.R = x + 32
             _self.B = y + 32

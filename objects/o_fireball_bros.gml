@@ -46,6 +46,39 @@ if !global.pause
     if gravity_state = 0
         gravity_v = -5
 
+    //ice break
+    if gravity_hit_up || gravity_hit_down
+    {
+        globalvar _self, _dir;
+        _self = id
+        if gravity_hit_up
+            _dir = -1
+        else
+            _dir = 1
+        with(o_block_ice)
+        {
+            if place_meeting(x-cosd(_self.gravity_dir)*_dir,y+sind(_self.gravity_dir)*_dir,_self)
+            {
+                destroy = true
+                _self.explode = true
+            }
+        }
+    }
+
+    if move_hit_ext
+    {
+        globalvar _self, _dir;
+        _self = id
+        with(o_block_ice)
+        {
+            if place_meeting(x-cosd(_self.move_dir),y+sind(_self.move_dir),_self)
+            {
+                destroy = true
+                _self.explode = true
+            }
+        }
+    }
+
     if gravity_hit_up || move_hit_ext
         explode = true
 
