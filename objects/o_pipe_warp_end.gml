@@ -6,6 +6,7 @@ applies_to=self
 */
 instance_init()
 pause = -1
+
 sprite_fix_offset(32,32)
 
 ID = 0
