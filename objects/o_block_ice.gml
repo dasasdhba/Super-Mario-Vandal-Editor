@@ -21,6 +21,9 @@ applies_to=self
 */
 if !global.pause
 {
+    if place_meeting(x,y,o_fireball_piranha) || place_meeting(x,y,o_lavaball)
+        destroy = true
+
     if destroy
     {
         audio_sound_play("ice_break")

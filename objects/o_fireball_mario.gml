@@ -39,34 +39,39 @@ if !global.pause
     //ice break
     if gravity_hit_up || gravity_hit_down
     {
-        globalvar _self, _dir;
-        _self = id
+        var ice, _dir;
         if gravity_hit_up
             _dir = -1
         else
             _dir = 1
-        with(o_block_ice)
+        do
         {
-            if place_meeting(x-cosd(_self.gravity_dir)*_dir,y+sind(_self.gravity_dir)*_dir,_self)
+            ice = instance_place_round(x+cosd(gravity_dir)*_dir,y+sind(gravity_dir)*_dir,o_block_ice)
+            if ice
             {
-                destroy = true
-                _self.explode = true
+                ice.destroy = true
+                explode = true
+                instance_deactivate_object(ice)
             }
         }
+        until( !ice )
+        instance_activate_object(o_block_ice)
     }
 
     if move_hit_ext
     {
-        globalvar _self, _dir;
-        _self = id
-        with(o_block_ice)
+        do
         {
-            if place_meeting(x-cosd(_self.move_dir),y+sind(_self.move_dir),_self)
+            ice = instance_place_round(x+cosd(move_dir),y-sind(move_dir),o_block_ice)
+            if ice
             {
-                destroy = true
-                _self.explode = true
+                ice.destroy = true
+                explode = true
+                instance_deactivate_object(ice)
             }
         }
+        until( !ice )
+        instance_activate_object(o_block_ice)
     }
 
     if gravity_hit_up || move_hit_ext

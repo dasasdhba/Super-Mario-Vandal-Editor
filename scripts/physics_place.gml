@@ -20,62 +20,49 @@ else
 
 if place_set != 2
 {
-    globalvar _self,_xorigin,_yorigin;
-    _self = id
-    _xorigin = x
-    _yorigin = y
-    x = mround(argument0)
-    y = mround(argument1)
-    with(o_solid)
+    var place_obj;
+    do
     {
-        if place_meeting(x,y,_self) && ( type = 0 || type = _self.phy_type )
+        place_obj = instance_place_round(argument0,argument1,o_solid)
+        if place_obj
         {
-            _self.x = _xorigin
-            _self.y = _yorigin
-            return true;
+            if place_obj.type = 0 || place_obj.type = phy_type
+            {
+                instance_activate_object(o_solid)
+                return true;
+            }
+            else
+                instance_deactivate_object(place_obj)
         }
     }
-
-    x = _xorigin
-    y = _yorigin
-
+    until( !place_obj )
+    instance_activate_object(o_solid)
 }
 
 if place_set != 1
 {
-    globalvar _self, _xorigin, _yorigin, _depth;
-    _self = id
-    _xorigin = x
-    _yorigin = y
-    _depth = place_depth
-    with(o_platform)
+    var place_obj;
+    do
     {
-        _self.x = mround(argument0)
-        _self.y = mround(argument1)
-        if place_meeting(x,y,_self) && ( type = 0 || type = _self.phy_type )
+        place_obj = instance_place_round(argument0,argument1,o_platform)
+        if place_obj
         {
-            if _depth <= 0
+            if place_obj.type = 0 || place_obj.type = phy_type
             {
-                _self.x = _xorigin
-                _self.y = _yorigin
-                return true;
-            }
-            else
-            {
-                _self.x = mround(argument0-_depth*cosd(_self.gravity_dir))
-                _self.y = mround(argument1+_depth*sind(_self.gravity_dir))
-                if !place_meeting(x,y,_self)
+                if place_depth <= 0 || !place_meeting_round(argument0-place_depth*cosd(gravity_dir),argument1+place_depth*sind(gravity_dir),place_obj)
                 {
-                    _self.x = _xorigin
-                    _self.y = _yorigin
+                    instance_activate_object(o_platform)
                     return true;
                 }
+                else
+                    instance_deactivate_object(place_obj)
             }
+            else
+                instance_deactivate_object(place_obj)
         }
     }
-
-    x = _xorigin
-    y = _yorigin
+    until( !place_obj )
+    instance_activate_object(o_platform)
 
 }
 

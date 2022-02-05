@@ -4,40 +4,48 @@ _return = false
 
 if gravity_hit_down
 {
-    globalvar _self;
-    _self = id
-    with(o_block)
+    var block;
+    do
     {
-        if !hit && place_meeting_round(x-cosd(_self.gravity_dir), y+sind(_self.gravity_dir), _self)
+        block = instance_place_round(x+cosd(gravity_dir), y-sind(gravity_dir), o_block)
+        if block
         {
-            hit = true
-            _return = true
+            if !block.hit
+            {
+                block.hit = true
+                _return = true
+            }
+            instance_deactivate_object(block)
         }
     }
+    until( !block )
+    instance_activate_object(o_block)
 }
 
 
 if gravity_v > 0 && gravity_place
 {
-    globalvar _self;
-    _self = id
-    with(o_block)
+    var block;
+    do
     {
-        if hidden && place_meeting_round(x, y, _self) && !place_meeting_round(x+16*cosd(_self.gravity_dir), y-16*sind(_self.gravity_dir), _self)
+        block = instance_place_round(x, y, o_block)
+        if block
         {
-            hit = true
-            hidden = false
-            type = 0
-            visible = true
-            with(_self)
+            if block.hidden && !place_meeting_round(x-16*cosd(gravity_dir), y+16*sind(gravity_dir), block)
             {
+                block.hit = true
+                block.hidden = false
+                block.type = 0
+                block.visible = true
                 physics_fix(x,y,gravity_dir+180,1)
                 gravity_hit_down = true
+                _return = true
             }
-
-            _return = true
+            instance_deactivate_object(block)
         }
     }
+    until( !block )
+    instance_activate_object(o_block)
 }
 
 return _return;

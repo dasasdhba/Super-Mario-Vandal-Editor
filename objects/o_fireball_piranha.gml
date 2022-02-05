@@ -39,15 +39,6 @@ if !global.pause
     physics_step()
     x += xspeed
 
-    //ice_break
-    globalvar _self;
-    _self = id
-    with(o_block_ice)
-    {
-        if place_meeting(x,y,_self)
-            destroy = true
-    }
-
     hurt_mario()
 
     //fall

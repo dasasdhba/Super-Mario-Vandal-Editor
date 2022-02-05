@@ -4,37 +4,43 @@ _return = false
 
 if move_hit
 {
-    globalvar block_dir,_self;
+    var block, block_dir;
     if move_mode = 1
         block_dir = move_dir + 180
     else
         block_dir = move_dir
-    _self = id
-    with(o_block)
+    do
     {
-        if !hit && place_meeting_round(x-cosd(block_dir), y+sind(block_dir), _self)
+        block = instance_place_round(x+cosd(block_dir), y-sind(block_dir), o_block)
+        if block
         {
-            hit = true
-            _return = true
+            if !block.hit
+            {
+                block.hit = true
+                _return = true
+            }
         }
     }
+    until( !block )
+    instance_activate_object(o_block)
 
 }
 
 if move_v > 0 && move_place
 {
-    globalvar _self;
-    _self = id
-    with(o_block)
+    var block;
+    do
     {
-        if hidden && place_meeting_round(x, y, _self) && !place_meeting_round(x+16*cosd(_self.move_dir), y-16*sind(_self.move_dir), _self)
-        {
-            hit = true
-            hidden = false
-            type = 0
-            visible = true
-            with(_self)
+         block = instance_place_round(x, y, _self)
+         if block
+         {
+            if block.hidden && !place_meeting_round(x-16*cosd(move_dir), y+16*sind(move_dir), block)
             {
+                block.hit = true
+                block.hidden = false
+                block.type = 0
+                block.visible = true
+
                 physics_fix(x,y,move_dir+180,1)
                 switch (move_mode)
                 {
@@ -43,11 +49,13 @@ if move_v > 0 && move_place
                     case 2: move_hit_ext = true; break;
                     default: break;
                 }
-            }
 
-            _return = true
-        }
+                _return = true
+            }
+         }
     }
+    until( !block )
+    instance_activate_object(o_block)
 
 }
 
