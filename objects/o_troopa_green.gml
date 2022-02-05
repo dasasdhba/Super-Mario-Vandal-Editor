@@ -83,6 +83,7 @@ if !global.pause
             death.image_yscale = image_yscale
             death.gravity_dir = gravity_dir
             death.activate = true
+            death.delay = 7
         }
 
         if atk > 0
