@@ -24,7 +24,8 @@ if !global.pause && o_mario.pipe = 5 && place_meeting(x,y,o_mario)
         {
             o_mario.x = x
             o_mario.y = y
-            o_mario.pipe = 6
+            with(o_camera_start)
+                event_user(0)
         }
     }
 }
