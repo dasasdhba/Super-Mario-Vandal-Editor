@@ -4,29 +4,28 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-instance_init()
-
-var block;
-block = instance_place(x, y, o_block)
-if block
+globalvar _self;
+_self = id
+with(o_block)
 {
-    if !global.oneoff
+    if place_meeting(x,y,_self)
     {
-        block.hidden = true
-        block.type = -1
-        block.visible = false
-    }
-    else
-        with(block)
+        if !global.oneoff
+        {
+            hidden = true
+            type = -1
+            visible = false
+        }
+        else
         {
             if item
+            {
                 with(item)
-                {
                     instance_destroy()
-                }
+            }
             instance_destroy()
         }
-
+    }
 }
 
 instance_destroy()

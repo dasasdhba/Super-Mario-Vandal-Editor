@@ -8,6 +8,7 @@ event_user(0)
 bonus_rise_v = 1.5
 
 sprite_fix_offset(16,31)
+pause = -1
 
 instance_init()
 physics_init()

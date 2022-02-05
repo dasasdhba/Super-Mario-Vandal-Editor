@@ -6,14 +6,14 @@ applies_to=self
 */
 instance_init()
 sprite_fix_offset(16,16)
+image_speed = 0.1
 
 if !variable_local_exists("type")
     type = 0
 
-image_speed = 0.1
-
 if !variable_local_exists("hidden")
     hidden = false
+
 hit = false
 coin = 1
 

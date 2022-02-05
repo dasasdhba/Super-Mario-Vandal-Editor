@@ -5,6 +5,8 @@ action_id=603
 applies_to=self
 */
 instance_init()
+pause = -1
+
 sprite_fix_offset(16,16)
 
 if !variable_local_exists("type")
@@ -12,6 +14,7 @@ if !variable_local_exists("type")
 
 if !variable_local_exists("hidden")
     hidden = false
+
 hit = false
 coin = 1
 scores = 50

@@ -135,6 +135,24 @@
 		|s_lui
 		|s_star
 	+block
+		+switch
+			|s_switch_red
+			|s_block_red
+			|s_switch_yellow
+			|s_block_yellow
+			|s_switch_green
+			|s_block_green
+			|s_switch_blue
+			|s_block_blue
+			|s_switch_indigo
+			|s_block_indigo
+			|s_switch_purple
+			|s_block_purple
+			|s_switch_black
+			|s_block_black
+			|s_switch_white
+			|s_block_white
+			|s_switch_hidden
 		|s_block_ice
 	+moving_block
 		+moving_platform

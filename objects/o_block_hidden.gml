@@ -4,15 +4,16 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-instance_init()
-
-var block;
-block = instance_place(x, y, o_block)
-if block
+globalvar _self;
+_self = id
+with(o_block)
 {
-    block.hidden = true
-    block.type = -1
-    block.visible = false
+    if place_meeting(x,y,_self)
+    {
+        hidden = true
+        type = -1
+        visible = false
+    }
 }
 
 instance_destroy()

@@ -134,6 +134,24 @@
 		|o_lui
 		|o_star
 	+block
+		+switch
+			|o_switch_red
+			|o_block_red
+			|o_switch_yellow
+			|o_block_yellow
+			|o_switch_green
+			|o_block_green
+			|o_switch_blue
+			|o_block_blue
+			|o_switch_indigo
+			|o_block_indigo
+			|o_switch_purple
+			|o_block_purple
+			|o_switch_black
+			|o_block_black
+			|o_switch_white
+			|o_block_white
+			|o_switch_hidden
 		|o_block_ice
 	+moving_block
 		+moving_platform
@@ -202,4 +220,6 @@
 	+parents
 		|o_enemy
 		|o_bonus
+		|o_switch
+		|o_block_switch
 		|o_scenery
