@@ -70,6 +70,7 @@ if !global.pause
 
     if move_hit_ext
     {
+        var ice;
         do
         {
             ice = instance_place_round(x+cosd(move_dir),y-sind(move_dir),o_block_ice)
