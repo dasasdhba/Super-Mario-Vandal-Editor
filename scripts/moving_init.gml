@@ -19,6 +19,7 @@ stand_check = 0 // = 0: move at start, = 1: move when Mario stands on
 fall_check = 0 // = 0: never fall, = 1: fall when Mario stands on
 reverse_turn = 1 // = 0: stop, = 1: turn, = 2: turn gradually
 direction_turn = 2 // = 0: stop, = 1: turn, = 2: turn gradually
+solid_turn = -1 //= 0: stop, = 1: turn
 
 reverse = false // reverse state
 

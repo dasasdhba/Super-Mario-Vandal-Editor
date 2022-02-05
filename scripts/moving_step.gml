@@ -402,4 +402,22 @@ if moving_state = 2
 }
 
 //physics
+if solid_turn >= 0
+{
+    move_place = true
+    move_mode = 2
+}
+
 physics_step()
+if move_hit_ext
+{
+    if solid_turn = 0
+    {
+        moving_state = 0
+        move_v = 0
+    }
+    else if solid_turn = 1
+        move_dir += 180
+
+    move_hit_ext = false
+}

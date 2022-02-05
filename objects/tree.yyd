@@ -1,17 +1,21 @@
 +editor
 	+marks
+		+camera
+			|o_camera_setting
+			|o_camera_setting_mario
+			|o_camera_start
+			|o_camera_end
+		+pipe
+			|o_pipe_enter
+			|o_pipe_exit
+			|o_pipe_warp_start
+			|o_pipe_warp_end
 		|o_mario
 		|o_HUD
 		|o_music_default
 		|o_music
 		|o_background_default
 		|o_background
-		|o_camera_setting
-		|o_camera_setting_mario
-		|o_pipe_enter
-		|o_pipe_exit
-		|o_pipe_warp_start
-		|o_pipe_warp_end
 		|o_spring
 		|o_checkpoint
 		|o_level_pass_small
@@ -130,8 +134,27 @@
 		|o_lui
 		|o_star
 	+moving_block
+		+moving_platform
+			|o_platform_moving
+			|o_platform_moving_short
+			|o_platform_blue
+			|o_platform_blue_short
+			|o_platform_green
+			|o_platform_green_short
+			|o_platform_gold
+			|o_platform_gold_short
+			|o_platform_purple
+			|o_platform_purple_short
+			|o_platform_dark
+			|o_platform_dark_short
+			|o_platform_white
+			|o_platform_white_short
+			|o_platform_castle
+			|o_platform_castle_long
+			|o_platform_pyramid
+			|o_platform_pyramid_long
+			|o_platform_cloud
 		|o_solid_moving
-		|o_platform_moving
 		|o_moving_setting
 		|o_moving_reverse
 		|o_moving_turn

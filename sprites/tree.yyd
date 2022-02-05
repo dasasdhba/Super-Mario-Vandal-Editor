@@ -1,17 +1,21 @@
 +editor
 	+marks
+		+camera
+			|s_camera_setting
+			|s_camera_setting_mario
+			|s_camera_start
+			|s_camera_end
+		+pipe
+			|s_pipe_enter
+			|s_pipe_exit
+			|s_pipe_warp_start
+			|s_pipe_warp_end
 		|s_mario
 		|s_HUD
 		|s_music_default
 		|s_music
 		|s_background_default
 		|s_background
-		|s_camera_setting
-		|s_camera_setting_mario
-		|s_pipe_enter
-		|s_pipe_exit
-		|s_pipe_warp_start
-		|s_pipe_warp_end
 		|s_spring
 		|s_checkpoint
 		|s_level_pass_small
@@ -131,8 +135,27 @@
 		|s_lui
 		|s_star
 	+moving_block
+		+moving_platform
+			|s_platform_moving
+			|s_platform_moving_short
+			|s_platform_blue
+			|s_platform_blue_short
+			|s_platform_green
+			|s_platform_green_short
+			|s_platform_gold
+			|s_platform_gold_short
+			|s_platform_purple
+			|s_platform_purple_short
+			|s_platform_dark
+			|s_platform_dark_short
+			|s_platform_white
+			|s_platform_white_short
+			|s_platform_castle
+			|s_platform_castle_long
+			|s_platform_pyramid
+			|s_platform_pyramid_long
+			|s_platform_cloud
 		|s_solid_moving
-		|s_platform_moving
 		|s_moving_setting
 		|s_moving_reverse
 		|s_moving_turn

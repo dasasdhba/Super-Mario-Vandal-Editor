@@ -15,14 +15,20 @@ volume = 1 //based on global.music
 //loop setting
 loop_start = -1
 loop_end = -1
+
+//view link
+view = 0
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
-if place_meeting(x, y, o_mario) && music != "" && music != global.musicname[channel]
+if !global.pause && ( ( view = 0 && place_meeting(x, y, o_mario) ) || view = 2 ) && music != "" && music != global.musicname[channel]
 {
+    if view = 2
+        view = 1
+
     if FMODInstanceIsPlaying(global.musicplay[channel])
         FMODInstanceStop(global.musicplay[channel])
 
