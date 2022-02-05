@@ -50,27 +50,27 @@ if o_mario.bbox_left >= L && o_mario.bbox_right <= R && o_mario.bbox_top >= T &&
     o_camera.T = T
     o_camera.B = B
 
-    with(instance_position(x+32,y,o_music))
+    with(o_music)
     {
-        if view = 1
+        if x = _self.x + 32 && y = _self.y && view = 1
             view = 2
     }
 
-    with(instance_position(x+32,y,o_background))
+    with(o_background)
     {
-        if view = 1
+        if x = _self.x + 32 && y = _self.y && view = 1
             view = 2
     }
 
-    with(instance_position(x+32,y,o_water_height_instant))
+    with(o_water_height_instant)
     {
-        if view = 1
+        if x = _self.x + 32 && y = _self.y && view = 1
             view = 2
     }
 
-    with(instance_position(x+32,y,o_lava_height_instant))
+    with(o_lava_height_instant)
     {
-        if view = 1
+        if x = _self.x + 32 && y = _self.y && view = 1
             view = 2
     }
 }
