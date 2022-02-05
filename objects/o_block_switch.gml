@@ -32,11 +32,12 @@ if !global.pause
 
     if state = 1 && type = -1
     {
-        if place_meeting(x,y,o_mario)
+        if place_meeting(x,y,o_mario) && o_mario.pipe = 0
         {
             if !celeste
             {
-                o_mario.death = true
+                if !global.debug_inv
+                    o_mario.death = true
                 type = 0
                 image_alpha = 1
             }
