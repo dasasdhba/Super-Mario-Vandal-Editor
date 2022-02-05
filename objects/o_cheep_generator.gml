@@ -41,5 +41,6 @@ if !global.pause && place_meeting(x,y,o_mario)
         c = instance_create(cx,cy,fish)
         c.dir = dir
         c.activate = true
+        c.refresh = true
     }
 }

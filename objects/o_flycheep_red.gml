@@ -66,7 +66,7 @@ if !global.pause
     }
 
     //fall
-    if gravity_v > 0 && y >= room_height + 64
+    if gravity_v > 0 && y >= view_yview[0] + view_hview[0] + 64
         instance_destroy()
 
 }

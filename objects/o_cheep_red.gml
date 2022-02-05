@@ -24,6 +24,8 @@ count = 0
 
 scores = 100
 activate = false
+
+refresh = false
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -103,6 +105,14 @@ if !global.pause
         if ( dir*sign(cosd(image_angle)) = 1 && x >= room_width + 32*abs(image_xscale) ) || ( dir*sign(cosd(image_angle)) = -1 && x <= -32*abs(image_xscale) )
         || ( dir*sign(sind(image_angle)) = 1 && y <= -32*abs(image_xscale) ) || ( dir*sign(sind(image_angle)) = -1 && y >= room_height + 32*abs(image_xscale) )
             instance_destroy()
+
+        //refresh
+        if refresh
+        {
+            if ( dir*sign(cosd(image_angle)) = 1 && x >= view_xview[0] + view_wview[0] + 96*abs(image_xscale) ) || ( dir*sign(cosd(image_angle)) = -1 && x <= view_xview[0] - 96*abs(image_xscale) )
+            || ( dir*sign(sind(image_angle)) = 1 && y <= view_yview[0] - 96*abs(image_xscale) ) || ( dir*sign(sind(image_angle)) = -1 && y >= view_yview[0] + view_hview[0] + 96*abs(image_xscale) )
+                instance_destroy()
+        }
 
     }
 
