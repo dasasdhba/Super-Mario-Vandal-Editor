@@ -322,145 +322,19 @@ applies_to=o_solid_moving
 //event for o_solid_moving
 if !global.pause
 {
-    globalvar dx,dy;
     dx = round(x) - xorigin
     dy = round(y) - yorigin
-
-    //fix the position of the other physics objects
-    if dx != 0 || dy != 0
-    {
-        globalvar _self;
-        _self = id
-        x = xorigin
-        y = yorigin
-        with (all)
-        {
-            if physics && ( _self.type = 0 || phy_type = _self.type ) && ( ( gravity_place && gravity_state != -1 ) || ( move_place && move_state != -1 ) )
-            {
-                var _pL,_pR,_pT,_pB;
-                _pL = false
-                _pR = false
-                _pT = false
-                _pB = false
-
-                if place_meeting_round(x-dx,y,_self)
-                {
-                    _self.x += dx
-                    var _place_fix;
-                    if dx > 0
-                    {
-                        _place_fix = physics_fix(x,y,0,1,dx)
-                        _pR = true
-                    }
-                    else
-                    {
-                        _place_fix = physics_fix(x,y,180,1,0-dx)
-                        _pL = true
-                    }
-                    _self.x -= dx
-                    if !_place_fix
-                        solid_crush = true
-                }
-
-                if place_meeting_round(x,y-dy,_self)
-                {
-                    _self.y += dy
-                    var _place_fix;
-                    if dy > 0
-                    {
-                        _place_fix = physics_fix(x,y,270,1,dy)
-                        _pB = true
-                    }
-                    else
-                    {
-                        _place_fix = physics_fix(x,y,90,1,0-dy)
-                        _pT = true
-                    }
-                    _self.y -= dy
-                    if !_place_fix
-                        solid_crush = true
-                }
-
-                if gravity_place && gravity_state = 0
-                {
-                    var _px,_py,_pd;
-                    _pd = min(0, dx*cosd(gravity_dir) - dy*sind(gravity_dir) )
-                    _px = x - _pd*cosd(gravity_dir) + cosd(gravity_dir)
-                    _py = y + _pd*sind(gravity_dir) - sind(gravity_dir)
-                    if !place_meeting_round(x,y,_self) && place_meeting_round(_px,_py,_self)
-                    {
-                        if ( dx > 0 && !_pR ) || ( dx < 0 && !_pL )
-                            gravity_fix_vx += dx - gravity_fix_vx
-                        if ( dy > 0 && !_pB ) || ( dy < 0 && !_pT )
-                            gravity_fix_vy += dy - gravity_fix_vy
-                    }
-
-                }
-            }
-        }
-
-        x += dx
-        y += dy
-    }
-
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=o_platform_moving
 */
-//event for o_platform moving
+//event for o_platform_moving
 if !global.pause
 {
-    globalvar dx,dy;
     dx = round(x) - xorigin
     dy = round(y) - yorigin
-
-    //fix the position of the other physics objects
-    if dx != 0 || dy != 0
-    {
-        globalvar _self;
-        _self = id
-        x = xorigin
-        y = yorigin
-        with (all)
-        {
-            if physics && ( _self.type = 0 || phy_type = _self.type ) && gravity_place && gravity_state != -1
-            {
-                var _pd;
-                _pd = min(0, dx*cosd(gravity_dir) - dy*sind(gravity_dir) )
-                if gravity_v >= _pd
-                {
-                    var _px,py;
-                    _px = x - _pd*cosd(gravity_dir) + cosd(gravity_dir)
-                    _py = y + _pd*sind(gravity_dir) - sind(gravity_dir)
-                    if !place_meeting_round(x,y,_self) && place_meeting_round(_px,_py,_self)
-                    {
-                        gravity_state = 0
-                        gravity_v = 0
-
-                        _px -= cosd(gravity_dir)
-                        _py += sind(gravity_dir)
-                        while ( place_meeting_round(_px,_py,_self) )
-                        {
-                            _px -= cosd(gravity_dir)
-                            _py += sind(gravity_dir)
-                        }
-
-                        if dx != 0
-                            gravity_fix_vx += dx + (_px-x) - gravity_fix_vx
-                        if dy != 0
-                            gravity_fix_vy += dy + (_py-y) - gravity_fix_vy
-                    }
-                }
-
-            }
-        }
-
-        x += dx
-        y += dy
-    }
-
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -759,30 +633,8 @@ with(all)
 
         auto_finish = false
 
-        if gravity_fix_vx != 0
-        {
-            x += gravity_fix_vx
-            if physics_place(x,y,1)
-            {
-                if gravity_fix_vx > 0
-                    physics_fix(x,y,180,1)
-                else
-                    physics_fix(x,y,0,1)
-            }
-        }
-        if gravity_fix_vy != 0
-        {
-            y += gravity_fix_vy
-            if physics_place(x,y,1)
-            {
-                if gravity_fix_vy > 0
-                    physics_fix(x,y,90,1)
-                else
-                    physics_fix(x,y,270,1)
-            }
-        }
-        gravity_fix_vx = 0
-        gravity_fix_vy = 0
+        if ( ( gravity_place && gravity_state != -1 ) || ( move_place && move_state != -1 ) )
+            physics_moving_fix()
 
     }
 

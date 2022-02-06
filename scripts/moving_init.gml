@@ -28,3 +28,9 @@ turn_v = 0 // the target velocity of turning
 turn_dir = 0 // the target direction of turning
 
 moving_detect = false // detect setting at start
+
+//fix physics object's position
+xorigin = x
+yorigin = y
+dx = 0
+dy = 0

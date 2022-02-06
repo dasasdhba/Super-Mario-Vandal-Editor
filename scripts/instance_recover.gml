@@ -1,6 +1,9 @@
 //instance_recover(obj)
-if argument0._ignore_
+with(argument0)
 {
-    argument0._ignore_ = false
-    argument0.x = argument0._ignore_x_
+    if _ignore_
+    {
+        _ignore_ = false
+        x = _ignore_x_
+    }
 }

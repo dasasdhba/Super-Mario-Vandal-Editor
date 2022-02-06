@@ -324,3 +324,4 @@ instance_recover
 gravity_hit_ice_up
 gravity_hit_ice_down
 move_hit_ice
+physics_moving_fix

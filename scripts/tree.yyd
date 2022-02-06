@@ -313,3 +313,4 @@
 	+moving_block
 		|moving_init
 		|moving_step
+		|physics_moving_fix

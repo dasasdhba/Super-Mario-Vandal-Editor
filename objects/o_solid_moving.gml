@@ -9,9 +9,6 @@ moving_init()
 sprite_fix_offset(sprite_get_width(sprite_index)/2,sprite_get_height(sprite_index)/2)
 
 type = 0
-
-xorigin = x
-yorigin = y
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
