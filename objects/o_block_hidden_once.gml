@@ -5,29 +5,24 @@ action_id=603
 applies_to=self
 */
 var block;
-do
+block = instance_place(x,y,o_block)
+if block
 {
-    block = instance_place(x,y,o_block)
-    if block
+    if !global.oneoff
     {
-        if !global.oneoff
+        block.hidden = true
+        block.type = -1
+        block.visible = false
+    }
+    else
+    {
+        if item
         {
-            block.hidden = true
-            block.type = -1
-            block.visible = false
-            instance_deactivate_object(block)
+            with(item)
+                instance_destroy()
         }
-        else
-        {
-            if item
-            {
-                with(item)
-                    instance_destroy()
-            }
-            instance_destroy()
-        }
+        instance_destroy()
     }
 }
-until( !block )
-instance_activate_object(o_block)
+
 instance_destroy()
