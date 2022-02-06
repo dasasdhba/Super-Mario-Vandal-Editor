@@ -1,15 +1,12 @@
 //moving_init()
 //init for moving block
-physics_init()
-
-gravity_place = false
 gravity_state = -1
 gravity_a = 0.2
 gravity_d = 0.2
-gravity_a_water = 0.2
-gravity_d_water = 0.2
+gravity_max = 10
 
-move_place = false
+move_v = 0
+move_dir = 0
 
 moving_state = 0 // = 0: static, = 1: moving, = 2: falling
 velocity = 2 // velocity setting by direction turn
