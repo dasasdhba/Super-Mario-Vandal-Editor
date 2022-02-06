@@ -657,9 +657,6 @@ with(all)
 //physics object
 if !global.pause
 {
-    var physics_fix_list;
-    physics_fix_list = ds_list_create()
-
     var i;
     for(i=0;i<ds_list_size(global.physics_object);i+=1)
     {
@@ -676,10 +673,8 @@ if !global.pause
             auto_finish = false
 
             if ( ( gravity_place && gravity_state != -1 ) || ( move_place && move_state != -1 ) )
-            {
                 physics_moving_fix()
-                ds_list_add(physics_fix_list, id)
-            }
+
         }
     }
 
@@ -688,9 +683,9 @@ if !global.pause
     with(o_platform_moving)
         event_user(0)
 
-    for(i=0;i<ds_list_size(physics_fix_list);i+=1)
+    for(i=0;i<ds_list_size(global.physics_object);i+=1)
     {
-        with(ds_list_find_value(physics_fix_list,i))
+        with(ds_list_find_value(global.physics_object,i))
         {
             physics_moving_T = false
             physics_moving_D = false
@@ -724,7 +719,6 @@ if !global.pause
         }
     }
 
-    ds_list_destroy(physics_fix_list)
 }
 
 //show background

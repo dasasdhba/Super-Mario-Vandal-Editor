@@ -2,7 +2,15 @@
 //init for physics
 
 physics = true
-ds_list_add(global.physics_object,id)
+var i, phy_exist;
+phy_exist = false
+for(i=0;i<ds_list_size(global.physics_object);i+=1)
+{
+    if ds_list_find_value(global.physics_object, i) = object_index
+        phy_exist = true
+}
+if !phy_exist
+    ds_list_add(global.physics_object,object_index)
 
 phy_type = 0
 phy_slope = 5
