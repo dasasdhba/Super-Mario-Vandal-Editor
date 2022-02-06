@@ -805,9 +805,6 @@ FMODUpdate()
 //free the music
 audio_music_refresh()
 
-//free the duplicated sprite
-sprite_free()
-
 //free physics object
 physics_free()
 
@@ -856,9 +853,15 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+//free the duplicated sprite
+sprite_free()
+
+//room refresh
 if room != r_start && room != r_restart
 {
     global.room_refresh = true
+    if sprite_exists(global.room_screen)
+        sprite_delete(global.room_screen)
     global.room_screen = sprite_create_from_screen(0, 0, view_wport[0], view_hport[0], 0, 0, 0, 0)
     o_foreground.depth = -10000000
 }
