@@ -52,7 +52,7 @@ do
     }
 }
 until( !block )
-instance_recover(o_solid_moving)
+instance_recover()
 
 //platform_moving fix
 if gravity_place && gravity_state != -1
@@ -96,5 +96,5 @@ if gravity_place && gravity_state != -1
         }
     }
     until( !block )
-    instance_recover(o_platform_moving)
+    instance_recover()
 }

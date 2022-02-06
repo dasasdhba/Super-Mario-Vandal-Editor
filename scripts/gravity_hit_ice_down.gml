@@ -19,7 +19,7 @@ if gravity_hit_down
         }
     }
     until( !block )
-    instance_recover(o_block_ice)
+    instance_recover()
 }
 
 return _return;

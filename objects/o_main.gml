@@ -58,6 +58,12 @@ instance_create(0,0,o_foreground)
 //sprite list
 global.sprite_list = ds_list_create()
 
+//physics object list
+global.physics_object = ds_list_create()
+
+//ignore list
+global.ignore_object = ds_list_create()
+
 //control
 global.key_up = vk_up
 global.key_down = vk_down
@@ -686,25 +692,6 @@ applies_to=self
 */
 with(all)
 {
-    //physics object
-    if physics && !global.pause
-    {
-        water_in = false
-        water_out = false
-
-        gravity_hit_up = false
-        gravity_hit_down = false
-
-        move_hit = false
-
-        auto_finish = false
-
-        //moving solid/platform position fix
-        if ( ( gravity_place && gravity_state != -1 ) || ( move_place && move_state != -1 ) )
-            physics_moving_fix()
-
-    }
-
     //pause
     if pause = 0 && global.pause
     {
@@ -727,16 +714,43 @@ with(all)
 
 }
 
+//physics object
 if !global.pause
 {
+    var physics_fix_list;
+    physics_fix_list = ds_list_create()
+
+    var i;
+    for(i=0;i<ds_list_size(global.physics_object);i+=1)
+    {
+        with(ds_list_find_value(global.physics_object,i))
+        {
+            water_in = false
+            water_out = false
+
+            gravity_hit_up = false
+            gravity_hit_down = false
+
+            move_hit = false
+
+            auto_finish = false
+
+            if ( ( gravity_place && gravity_state != -1 ) || ( move_place && move_state != -1 ) )
+            {
+                physics_moving_fix()
+                ds_list_add(physics_fix_list, id)
+            }
+        }
+    }
+
     with(o_solid_moving)
         event_user(0)
     with(o_platform_moving)
         event_user(0)
 
-    with(all)
+    for(i=0;i<ds_list_size(physics_fix_list);i+=1)
     {
-        if physics
+        with(ds_list_find_value(physics_fix_list,i))
         {
             physics_moving_T = false
             physics_moving_D = false
@@ -769,6 +783,8 @@ if !global.pause
             gravity_fix_vy = 0
         }
     }
+
+    ds_list_destroy(physics_fix_list)
 }
 
 //show background
@@ -791,6 +807,9 @@ audio_music_refresh()
 
 //free the duplicated sprite
 sprite_free()
+
+//free physics object
+physics_free()
 
 //pause the sound
 if global.pause && !global.pause_sound

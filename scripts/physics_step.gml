@@ -90,7 +90,7 @@ if gravity_state = 0
                 }
             }
             until( !_moving )
-            instance_recover(o_solid_moving)
+            instance_recover()
 
             do
             {
@@ -107,7 +107,7 @@ if gravity_state = 0
                 }
             }
             until( !_moving )
-            instance_recover(o_platform_moving)
+            instance_recover()
         }
     }
     else

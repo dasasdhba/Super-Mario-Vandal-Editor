@@ -23,7 +23,7 @@ if move_hit
         }
     }
     until( !block )
-    instance_recover(o_block)
+    instance_recover()
 }
 
 if move_v > 0 && move_place
@@ -57,7 +57,7 @@ if move_v > 0 && move_place
          }
     }
     until( !block )
-    instance_recover(o_block)
+    instance_recover()
 }
 
 return _return;

@@ -19,7 +19,7 @@ if gravity_hit_down
         }
     }
     until( !block )
-    instance_recover(o_block)
+    instance_recover()
 }
 
 
@@ -45,7 +45,7 @@ if gravity_v > 0 && gravity_place
         }
     }
     until( !block )
-    instance_recover(o_block)
+    instance_recover()
 }
 
 return _return;

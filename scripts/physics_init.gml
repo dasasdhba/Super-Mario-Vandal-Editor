@@ -2,6 +2,8 @@
 //init for physics
 
 physics = true
+ds_list_add(global.physics_object,id)
+
 phy_type = 0
 phy_slope = 5
 

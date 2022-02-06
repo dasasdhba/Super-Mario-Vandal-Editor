@@ -7,5 +7,6 @@ with(argument0)
         _ignore_ = true
         _ignore_x_ = x
         x = -99999999
+        ds_list_add(global.ignore_object, id)
     }
 }

@@ -4,8 +4,8 @@ _p1 = parallax_x(0.7)
 _p2 = parallax_x(0.3)
 _p3 = parallax_x(0.5)
 
-global.back_vx[2] += 0.2*global.pause
-global.back_vx[3] += 0.4*global.pause
+global.back_vx[2] += 0.2
+global.back_vx[3] += 0.4
 
 background_visible[0] = 1
 background_visible[1] = 1

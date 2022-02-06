@@ -28,6 +28,7 @@
 		|physics_step
 		|physics_place
 		|physics_fix
+		|physics_free
 	+memory
 		|cleanmem_init
 		|cleanmem_get_mem

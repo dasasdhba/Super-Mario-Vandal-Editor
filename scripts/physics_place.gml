@@ -28,7 +28,7 @@ if place_set != 2
         {
             if place_obj.type = 0 || place_obj.type = phy_type
             {
-                instance_recover(o_solid)
+                instance_recover()
                 return true;
             }
             else
@@ -36,7 +36,7 @@ if place_set != 2
         }
     }
     until( !place_obj )
-    instance_recover(o_solid)
+    instance_recover()
 }
 
 if place_set != 1
@@ -51,7 +51,7 @@ if place_set != 1
             {
                 if place_depth <= 0 || !place_meeting_round(argument0-place_depth*cosd(gravity_dir),argument1+place_depth*sind(gravity_dir),place_obj)
                 {
-                    instance_recover(o_platform)
+                    instance_recover()
                     return true;
                 }
                 else
@@ -62,7 +62,7 @@ if place_set != 1
         }
     }
     until( !place_obj )
-    instance_recover(o_platform)
+    instance_recover()
 
 }
 
