@@ -24,6 +24,10 @@ turn_state = 0 // = 1: turn gradually
 turn_v = 0 // the target velocity of turning
 turn_dir = 0 // the target direction of turning
 
+//calculate the distance
+turn_calc = 0
+turn_distance = 0
+
 moving_detect = false // detect setting at start
 
 //fix physics object's position

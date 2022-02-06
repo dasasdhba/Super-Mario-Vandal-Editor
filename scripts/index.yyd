@@ -326,3 +326,6 @@ gravity_hit_ice_down
 move_hit_ice
 physics_moving_fix
 physics_free
+moving_turn_x
+moving_turn_y
+moving_motion

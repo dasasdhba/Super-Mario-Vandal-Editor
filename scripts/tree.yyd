@@ -314,4 +314,7 @@
 	+moving_block
 		|moving_init
 		|moving_step
+		|moving_motion
+		|moving_turn_x
+		|moving_turn_y
 		|physics_moving_fix

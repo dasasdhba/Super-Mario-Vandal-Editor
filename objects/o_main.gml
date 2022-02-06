@@ -328,38 +328,8 @@ applies_to=o_solid_moving
 //event for o_solid_moving
 if !global.pause
 {
-    //movement
-    if move_v > 0
-    {
-        x += move_v*cosd(move_dir)
-        y -= move_v*sind(move_dir)
-
-        if solid_turn >= 0
-        {
-            phy_type = 0
-            if physics_place(x,y,1)
-            {
-                physics_fix(x,y,move_dir+180,1)
-                if solid_turn = 0
-                {
-                    moving_state = 0
-                    move_v = 0
-                }
-                else if solid_turn = 1
-                    move_dir += 180
-            }
-        }
-    }
-    if gravity_state = 1
-    {
-        if gravity_v < gravity_max
-            gravity_v += gravity_a
-        if gravity_v > gravity_max
-            gravity_v -= gravity_d
-
-        x += gravity_v*cosd(gravity_dir)
-        y -= gravity_v*sind(gravity_dir)
-    }
+    if moving_state != -1
+        moving_motion()
 
     dx = round(x) - xorigin
     dy = round(y) - yorigin
@@ -372,38 +342,8 @@ applies_to=o_platform_moving
 //event for o_platform_moving
 if !global.pause
 {
-    //movement
-    if move_v > 0
-    {
-        x += move_v*cosd(move_dir)
-        y -= move_v*sind(move_dir)
-
-        if solid_turn >= 0
-        {
-            phy_type = 0
-            if physics_place(x,y,1)
-            {
-                physics_fix(x,y,move_dir+180,1)
-                if solid_turn = 0
-                {
-                    moving_state = 0
-                    move_v = 0
-                }
-                else if solid_turn = 1
-                    move_dir += 180
-            }
-        }
-    }
-    if gravity_state = 1
-    {
-        if gravity_v < gravity_max
-            gravity_v += gravity_a
-        if gravity_v > gravity_max
-            gravity_v -= gravity_d
-
-        x += gravity_v*cosd(gravity_dir)
-        y -= gravity_v*sind(gravity_dir)
-    }
+    if moving_state != -1
+        moving_motion()
 
     dx = round(x) - xorigin
     dy = round(y) - yorigin
