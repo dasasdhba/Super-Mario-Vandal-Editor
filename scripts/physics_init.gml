@@ -34,9 +34,6 @@ gravity_d_water = 0.85 //deceleration in water
 gravity_hit_up = false
 gravity_hit_down = false
 
-gravity_fix_vx = 0 //x velocity of moving platform
-gravity_fix_vy = 0 //y velocity of moving platform
-
 //move
 move_state = 0 // 0 = static; 1 = moving
 move_place = true
@@ -53,3 +50,11 @@ auto_finish = false
 
 //crush detect
 solid_crush = false
+
+//moving solid/platform fix
+physics_moving_T = false
+physics_moving_D = false
+physics_moving_L = false
+physics_moving_R = false
+gravity_fix_vx = 0 //x velocity of moving platform
+gravity_fix_vy = 0 //y velocity of moving platform

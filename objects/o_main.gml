@@ -322,6 +322,39 @@ applies_to=o_solid_moving
 //event for o_solid_moving
 if !global.pause
 {
+    //movement
+    if move_v > 0
+    {
+        x += move_v*cosd(move_dir)
+        y -= move_v*sind(move_dir)
+
+        if solid_turn >= 0
+        {
+            phy_type = 0
+            if physics_place(x,y,1)
+            {
+                physics_fix(x,y,move_dir+180,1)
+                if solid_turn = 0
+                {
+                    moving_state = 0
+                    move_v = 0
+                }
+                else if solid_turn = 1
+                    move_dir += 180
+            }
+        }
+    }
+    if gravity_state = 1
+    {
+        if gravity_v < gravity_max
+            gravity_v += gravity_a
+        if gravity_v > gravity_max
+            gravity_v -= gravity_d
+
+        x += gravity_v*cosd(gravity_dir)
+        y -= gravity_v*sind(gravity_dir)
+    }
+
     dx = round(x) - xorigin
     dy = round(y) - yorigin
 }
@@ -333,6 +366,39 @@ applies_to=o_platform_moving
 //event for o_platform_moving
 if !global.pause
 {
+    //movement
+    if move_v > 0
+    {
+        x += move_v*cosd(move_dir)
+        y -= move_v*sind(move_dir)
+
+        if solid_turn >= 0
+        {
+            phy_type = 0
+            if physics_place(x,y,1)
+            {
+                physics_fix(x,y,move_dir+180,1)
+                if solid_turn = 0
+                {
+                    moving_state = 0
+                    move_v = 0
+                }
+                else if solid_turn = 1
+                    move_dir += 180
+            }
+        }
+    }
+    if gravity_state = 1
+    {
+        if gravity_v < gravity_max
+            gravity_v += gravity_a
+        if gravity_v > gravity_max
+            gravity_v -= gravity_d
+
+        x += gravity_v*cosd(gravity_dir)
+        y -= gravity_v*sind(gravity_dir)
+    }
+
     dx = round(x) - xorigin
     dy = round(y) - yorigin
 }
@@ -633,6 +699,7 @@ with(all)
 
         auto_finish = false
 
+        //moving solid/platform position fix
         if ( ( gravity_place && gravity_state != -1 ) || ( move_place && move_state != -1 ) )
             physics_moving_fix()
 
@@ -658,6 +725,47 @@ with(all)
         }
     }
 
+}
+
+with(o_solid_moving)
+    event_user(0)
+with(o_platform_moving)
+    event_user(0)
+
+with(all)
+{
+    if physics && !global.pause
+    {
+        physics_moving_T = false
+        physics_moving_D = false
+        physics_moving_L = false
+        physics_moving_R = false
+
+        if gravity_fix_vx != 0
+        {
+            x += gravity_fix_vx
+            if physics_place(x,y,1)
+            {
+                if gravity_fix_vx > 0
+                    physics_fix(x,y,180,1)
+                else
+                    physics_fix(x,y,0,1)
+            }
+        }
+        if gravity_fix_vy != 0
+        {
+            y += gravity_fix_vy
+            if physics_place(x,y,1)
+            {
+                if gravity_fix_vy > 0
+                    physics_fix(x,y,90,1)
+                else
+                    physics_fix(x,y,270,1)
+            }
+        }
+        gravity_fix_vx = 0
+        gravity_fix_vy = 0
+    }
 }
 
 //show background

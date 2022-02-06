@@ -31,3 +31,5 @@ xorigin = x
 yorigin = y
 dx = 0
 dy = 0
+stand_n = 0
+stand_id = 0
