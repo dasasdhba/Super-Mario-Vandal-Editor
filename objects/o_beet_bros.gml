@@ -63,7 +63,7 @@ if !global.pause
                 instance_ignore(block)
             }
         }
-        until(! block )
+        until( !block )
         instance_recover()
 
     }
