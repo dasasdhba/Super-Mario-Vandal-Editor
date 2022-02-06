@@ -46,14 +46,20 @@ len = 8 * string_length(str);
 str += chr(128);
 pos = 0;
 repeat (string_length(str)) {
+    if pos >= 30000
+        break;
     data[pos] = ord(string_char_at(str, pos+1));
     pos += 1;
 }
 while ((pos mod 64) != 56) {
+    if pos >= 30000
+        break;
     data[pos] = 0;
     pos += 1;
 }
 for (i=0; i<64; i+=8) {
+    if pos >= 30000
+        break;
     data[pos] = len >> i;
     pos += 1
 }
