@@ -21,8 +21,12 @@ gravity_a = 0.4
 gravity_d = 0.4
 move_mode = 1
 
+if place_meeting_round(x,y,o_shell_moving)
+    moving = true
+else
+    moving = false
+
 velocity = 5
-moving = false
 delay = 0
 
 scores = 100
