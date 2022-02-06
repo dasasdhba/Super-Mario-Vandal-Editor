@@ -1,6 +1,8 @@
 //moving_init()
 //init for moving block
 gravity_state = -1
+gravity_dir = 270
+gravity_v = 0
 gravity_a = 0.2
 gravity_d = 0.2
 gravity_max = 10
