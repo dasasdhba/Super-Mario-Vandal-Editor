@@ -27,7 +27,6 @@
 * ***FMOD Sound System*** by **Firelight Technologies Pty, Ltd.**
 * ***MageINI*** by **Mage松仁玉米**
 * ***CleanMem.dll*** by **Halo Shg**
-* ***DX8 to DX9 Convertor*** by **ENBSeries**
 * Some scripts from **GMLscripts.com**
 * Other main scripts by **dasasdhba**
 
