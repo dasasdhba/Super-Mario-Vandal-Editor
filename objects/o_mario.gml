@@ -593,7 +593,7 @@ if !global.pause && !crouch && pipe = 0 && control && keyboard_check_pressed(glo
     if global.mario = 3 && instance_number(o_beet_mario) < 2
     {
         var weapon;
-        weapon = instance_create(x-28*image_yscale*sind(image_angle), y-28*image_yscale*cosd(image_angle), o_beet_mario)
+        weapon = instance_create(x-16*image_yscale*sind(image_angle), y-16*image_yscale*cosd(image_angle), o_beet_mario)
         weapon.image_xscale = image_xscale
         weapon.image_yscale = image_yscale
         weapon.image_angle = image_angle

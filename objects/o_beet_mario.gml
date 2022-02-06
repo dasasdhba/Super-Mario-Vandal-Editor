@@ -20,6 +20,13 @@ count = 0
 bounce = false
 explode = false
 bubble = 0
+
+if physics_place(x,y,1)
+{
+    bounce = true
+    gravity_place = false
+    move_place = false
+}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -32,6 +39,34 @@ if !global.pause
     gravity_hit_block_up()
     gravity_hit_block_down()
     move_hit_block()
+
+    if !gravity_place && !explode
+    {
+        var block;
+        do
+        {
+            block = instance_place_round(x,y,o_block)
+            if block
+            {
+                if !block.hit
+                {
+                    block.hit = true
+                    if block.hidden
+                    {
+                        block.hidden = false
+                        type = 0
+                        visible = true
+                    }
+
+                    bounce = true
+                }
+                instance_ignore(block)
+            }
+        }
+        until(! block )
+        instance_recover()
+
+    }
 
     if count < 3
     {

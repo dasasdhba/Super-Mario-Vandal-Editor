@@ -41,7 +41,7 @@ L = x - view_wview[0]/2
 T = y - view_hview[0]/2
 R = x + view_wview[0]/2
 B = y + view_hview[0]/2
-if o_mario.bbox_left >= L && o_mario.bbox_right <= R && o_mario.bbox_top >= T && o_mario.bbox_bottom <= B
+if o_mario.bbox_right >= L && o_mario.bbox_left <= R && o_mario.bbox_bottom >= T && o_mario.bbox_top <= B
     first = true
 #define Other_11
 /*"/*'/**//* YYD ACTION
