@@ -727,44 +727,47 @@ with(all)
 
 }
 
-with(o_solid_moving)
-    event_user(0)
-with(o_platform_moving)
-    event_user(0)
-
-with(all)
+if !global.pause
 {
-    if physics && !global.pause
-    {
-        physics_moving_T = false
-        physics_moving_D = false
-        physics_moving_L = false
-        physics_moving_R = false
+    with(o_solid_moving)
+        event_user(0)
+    with(o_platform_moving)
+        event_user(0)
 
-        if gravity_fix_vx != 0
+    with(all)
+    {
+        if physics
         {
-            x += gravity_fix_vx
-            if physics_place(x,y,1)
+            physics_moving_T = false
+            physics_moving_D = false
+            physics_moving_L = false
+            physics_moving_R = false
+
+            if gravity_fix_vx != 0
             {
-                if gravity_fix_vx > 0
-                    physics_fix(x,y,180,1)
-                else
-                    physics_fix(x,y,0,1)
+                x += gravity_fix_vx
+                if physics_place(x,y,1)
+                {
+                    if gravity_fix_vx > 0
+                        physics_fix(x,y,180,1)
+                    else
+                        physics_fix(x,y,0,1)
+                }
             }
-        }
-        if gravity_fix_vy != 0
-        {
-            y += gravity_fix_vy
-            if physics_place(x,y,1)
+            if gravity_fix_vy != 0
             {
-                if gravity_fix_vy > 0
-                    physics_fix(x,y,90,1)
-                else
-                    physics_fix(x,y,270,1)
+                y += gravity_fix_vy
+                if physics_place(x,y,1)
+                {
+                    if gravity_fix_vy > 0
+                        physics_fix(x,y,90,1)
+                    else
+                        physics_fix(x,y,270,1)
+                }
             }
+            gravity_fix_vx = 0
+            gravity_fix_vy = 0
         }
-        gravity_fix_vx = 0
-        gravity_fix_vy = 0
     }
 }
 
