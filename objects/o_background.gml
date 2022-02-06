@@ -19,9 +19,9 @@ applies_to=self
 */
 if !global.pause && ( ( view = 0 && place_meeting(x, y, o_mario) ) || view = 2 ) && global.background != bg
 {
-    if view = 2
-        view = 1
-
     background_clear()
     global.background = bg
 }
+
+if view = 2
+    view = 1

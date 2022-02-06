@@ -26,9 +26,6 @@ applies_to=self
 */
 if !global.pause && ( ( view = 0 && place_meeting(x, y, o_mario) ) || view = 2 ) && music != "" && music != global.musicname[channel]
 {
-    if view = 2
-        view = 1
-
     if FMODInstanceIsPlaying(global.musicplay[channel])
         FMODInstanceStop(global.musicplay[channel])
 
@@ -40,3 +37,6 @@ if !global.pause && ( ( view = 0 && place_meeting(x, y, o_mario) ) || view = 2 )
     if loop_start >= 0 && loop_end > loop_start
         FMODInstanceSetLoopPoints(global.musicplay[channel],loop_start,loop_end)
 }
+
+if view = 2
+    view = 1

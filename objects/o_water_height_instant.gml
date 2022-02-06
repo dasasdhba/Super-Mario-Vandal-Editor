@@ -19,9 +19,9 @@ applies_to=self
 */
 if !global.pause && instance_number(o_water_surface_auto) > 0 && ( ( view = 0 && place_meeting(x, y, o_mario) ) || view = 2 ) && o_water_surface_auto.y != height
 {
-    if view = 2
-        view = 1
-
     o_water_surface_auto.y = height
     o_water_surface_auto.ytarget = height
 }
+
+if view = 2
+    view = 1
