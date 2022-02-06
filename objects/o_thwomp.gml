@@ -72,9 +72,7 @@ if !global.pause
     }
 
     physics_step()
-    var hit_block;
-    hit_block = gravity_hit_block_down()
-    if hit_block
+    if gravity_hit_block_down()
         gravity_state = 1
 
     //state = 1: falling
@@ -116,14 +114,14 @@ if !global.pause
         }
     }
 
-    var hurt_flag;
-    hurt_flag = hurt_mario()
-
     //laugh
-    if hurt_flag && l_count = 0
+    if hurt_mario()
     {
-        l_count = 1
-        audio_sound_play("thwomp")
+        if l_count = 0
+        {
+            l_count = 1
+            audio_sound_play("thwomp")
+        }
     }
 
     if l_count = 0

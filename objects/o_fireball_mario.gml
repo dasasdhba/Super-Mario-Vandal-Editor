@@ -37,43 +37,8 @@ if !global.pause
         gravity_v = -5
 
     //ice break
-    if gravity_hit_up || gravity_hit_down
-    {
-        var ice, _dir;
-        if gravity_hit_up
-            _dir = -1
-        else
-            _dir = 1
-        do
-        {
-            ice = instance_place_round(x+cosd(gravity_dir)*_dir,y+sind(gravity_dir)*_dir,o_block_ice)
-            if ice
-            {
-                ice.destroy = true
-                explode = true
-                instance_deactivate_object(ice)
-            }
-        }
-        until( !ice )
-        instance_activate_object(o_block_ice)
-    }
-
-    if move_hit_ext
-    {
-        var ice;
-        do
-        {
-            ice = instance_place_round(x+cosd(move_dir),y-sind(move_dir),o_block_ice)
-            if ice
-            {
-                ice.destroy = true
-                explode = true
-                instance_deactivate_object(ice)
-            }
-        }
-        until( !ice )
-        instance_activate_object(o_block_ice)
-    }
+    if gravity_hit_ice_down() || gravity_hit_ice_up() || move_hit_ice()
+        explode = true
 
     if gravity_hit_up || move_hit_ext
         explode = true

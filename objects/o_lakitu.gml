@@ -79,10 +79,10 @@ if !global.pause
             if place_meeting_round(x,y,o_lakitu_start)
             {
                 _self.activate = true
-                v = move_v*(1-move_dir/90)
-                l_ir = irandom(launch_i_random)
-                l_tr = irandom(launch_t_random)
-                r_random = irandom(reborn_random)
+                _self.v = _self.move_v*(1-_self.move_dir/90)
+                _self.l_ir = irandom(_self.launch_i_random)
+                _self.l_tr = irandom(_self.launch_t_random)
+                _self.r_random = irandom(_self.reborn_random)
             }
             if place_meeting_round(x,y,o_lakitu_stop)
                 _self.activate = false

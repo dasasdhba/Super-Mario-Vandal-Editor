@@ -15,11 +15,11 @@ if gravity_hit_down
                 block.hit = true
                 _return = true
             }
-            instance_deactivate_object(block)
+            instance_ignore(block)
         }
     }
     until( !block )
-    instance_activate_object(o_block)
+    instance_recover(o_block)
 }
 
 
@@ -41,11 +41,11 @@ if gravity_v > 0 && gravity_place
                 gravity_hit_down = true
                 _return = true
             }
-            instance_deactivate_object(block)
+            instance_ignore(block)
         }
     }
     until( !block )
-    instance_activate_object(o_block)
+    instance_recover(o_block)
 }
 
 return _return;

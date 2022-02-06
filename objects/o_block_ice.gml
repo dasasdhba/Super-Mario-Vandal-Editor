@@ -22,9 +22,9 @@ applies_to=self
 if !global.pause
 {
     if place_meeting(x,y,o_fireball_piranha) || place_meeting(x,y,o_lavaball)
-        destroy = true
+        hit = true
 
-    if destroy
+    if hit
     {
         audio_sound_play("ice_break")
         var f;

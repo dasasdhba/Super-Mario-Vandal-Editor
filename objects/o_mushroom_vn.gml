@@ -70,9 +70,7 @@ if !global.pause && !bonus_place
             move_v = velocity
             physics_step()
 
-            var mario_death;
-            mario_death = hurt_mario(1)
-            if mario_death
+            if hurt_mario(1)
             {
                 var boom;
                 boom = instance_create((bbox_left+bbox_right)/2, (bbox_top+bbox_bottom)/2, o_boom)

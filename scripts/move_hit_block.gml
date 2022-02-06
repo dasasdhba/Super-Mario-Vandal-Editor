@@ -19,11 +19,11 @@ if move_hit
                 block.hit = true
                 _return = true
             }
-            instance_deactivate_object(block)
+            instance_ignore(block)
         }
     }
     until( !block )
-    instance_activate_object(o_block)
+    instance_recover(o_block)
 }
 
 if move_v > 0 && move_place
@@ -52,12 +52,12 @@ if move_v > 0 && move_place
 
                 _return = true
             }
-            instance_deactivate_object(block)
+            instance_ignore(block)
 
          }
     }
     until( !block )
-    instance_activate_object(o_block)
+    instance_recover(o_block)
 }
 
 return _return;

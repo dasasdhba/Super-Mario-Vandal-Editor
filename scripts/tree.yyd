@@ -14,6 +14,8 @@
 			|sprite_free
 			|image_play
 		|instance_init
+		|instance_ignore
+		|instance_recover
 		|instance_place_round
 		|place_meeting_round
 		|out_of_frame
@@ -303,6 +305,9 @@
 		|gravity_hit_block_up
 		|gravity_hit_block_down
 		|move_hit_block
+		|gravity_hit_ice_up
+		|gravity_hit_ice_down
+		|move_hit_ice
 	+mario
 		|hurt_mario
 	+moving_block
