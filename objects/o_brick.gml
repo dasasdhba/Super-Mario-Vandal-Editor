@@ -44,6 +44,8 @@ if item
     item.visible = false
     item.bonus_place = true
 }
+
+hit_block = s_block_bump
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -236,7 +238,7 @@ if !out_of_frame(4)
     {
         var d;
         d = 4 - abs(ani-4)
-        draw_sprite_ext(s_block_bump, 0, x-d*cosd(image_angle-90), y+d*sind(image_angle-90), image_xscale, image_yscale, image_angle, image_blend, image_alpha)
+        draw_sprite_ext(hit_block, 0, x-d*cosd(image_angle-90), y+d*sind(image_angle-90), image_xscale, image_yscale, image_angle, image_blend, image_alpha)
     }
     else if bump
     {
