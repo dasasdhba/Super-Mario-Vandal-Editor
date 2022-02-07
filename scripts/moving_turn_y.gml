@@ -12,11 +12,14 @@ if reverse_turn >= 0 && reverse_turn <= 2
 
         var _ds;
         _ds = sign(sind(move_dir))
-        do
+        if _ds != 0
         {
-            y += _ds
+            do
+            {
+                y += _ds
+            }
+            until ( !place_meeting_round(x,y,_detect) )
         }
-        until ( !place_meeting_round(x,y,_detect) )
 
         if reverse_turn = 0
         {
