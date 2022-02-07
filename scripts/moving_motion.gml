@@ -28,7 +28,11 @@ if move_v > 0
                 move_v = 0
             }
             else if solid_turn = 1
+            {
                 move_dir += 180
+                if turn_state = 1
+                    turn_state = 2
+            }
         }
     }
 }
