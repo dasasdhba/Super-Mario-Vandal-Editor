@@ -59,18 +59,18 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-//light system
 if global.light > 0 && !draw_stop
 {
     surface_set_target(srf_light)
     draw_clear_alpha(c_black,0)
-    var i;
+    var i, scale;
+    scale = view_wport[0]/view_wview[0]
     for(i=0;i<ds_list_size(global.light_list);i+=1)
     {
         with(ds_list_find_value(global.light_list,i))
         {
-            if !out_of_frame(320*o_camera.scale)
-                draw_sprite_ext(s_light_effect,0,(bbox_left+bbox_right)/2-view_xview[0],(bbox_top+bbox_bottom)/2-view_yview[0],o_camera.scale,o_camera.scale,0,c_black,1)
+            if !out_of_frame(320*scale)
+                draw_sprite_ext(s_light_circle,0,(bbox_left+bbox_right)/2-view_xview[0],(bbox_top+bbox_bottom)/2-view_yview[0],scale,scale,0,c_black,1)
         }
     }
 
