@@ -52,6 +52,8 @@ global.music_id_list = ds_list_create()
 global.music_instance_list = ds_list_create()
 
 //background
+global.light = 0
+light_init()
 background_clear()
 instance_create(0,0,o_foreground)
 

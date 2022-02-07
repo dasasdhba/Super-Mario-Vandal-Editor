@@ -329,3 +329,4 @@ physics_free
 moving_turn_x
 moving_turn_y
 moving_motion
+light_init

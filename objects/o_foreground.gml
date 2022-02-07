@@ -1,3 +1,21 @@
+#define Other_4
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+srf_mask = surface_create(view_wport[0], view_hport[0])
+srf_light = surface_create(view_wport[0], view_hport[0])
+draw_stop = false
+#define Other_5
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+surface_free(srf_mask)
+surface_free(srf_light)
+draw_stop = true
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -35,4 +53,33 @@ if global.debug_box
         if coin_brick && !create
             draw_sprite_ext(s_coin, 0, x-16*cosd(image_angle)-16*sind(image_angle), y+16*sind(image_angle)-16*cosd(image_angle), image_xscale, image_yscale, image_angle, image_blend, image_alpha*0.75)
     }
+}
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+//light system
+if global.light > 0 && !draw_stop
+{
+    surface_set_target(srf_light)
+    draw_clear_alpha(c_black,0)
+    var i;
+    for(i=0;i<ds_list_size(global.light_list);i+=1)
+    {
+        with(ds_list_find_value(global.light_list,i))
+        {
+            if !out_of_frame(320*o_camera.scale)
+                draw_sprite_ext(s_light_effect,0,(bbox_left+bbox_right)/2-view_xview[0],(bbox_top+bbox_bottom)/2-view_yview[0],o_camera.scale,o_camera.scale,0,c_black,1)
+        }
+    }
+
+    surface_set_target(srf_mask)
+    draw_clear(c_black)
+    draw_set_blend_mode(bm_subtract)
+    draw_surface(srf_light,0,0)
+    draw_set_blend_mode(bm_normal)
+
+    surface_reset_target()
+    draw_surface_ext(srf_mask,0,0,1,1,0,c_white,global.light)
 }
