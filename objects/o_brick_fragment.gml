@@ -12,6 +12,10 @@ image_speed = 0.4
 gravity_place = false
 gravity_a = 0.4
 gravity_d = 0.4
+gravity_a_water = 0.4
+gravity_d_water = 0.4
+gravity_max_water = 10
+
 move_place = false
 #define Step_0
 /*"/*'/**//* YYD ACTION
