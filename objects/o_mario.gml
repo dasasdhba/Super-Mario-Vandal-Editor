@@ -77,6 +77,14 @@ crouch = false
 crouch_fix = false
 crouch_fix_v = 2
 pass = false
+
+//start pipe exit
+if global.checkpoint = 0 && place_meeting(x,y,o_pipe_exit)
+{
+    pipe = 6
+    gravity_state = -1
+    move_state = -1
+}
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
