@@ -70,7 +70,7 @@ if global.light > 0 && !draw_stop
         with(ds_list_find_value(global.light_list,i))
         {
             if !out_of_frame(320*scale)
-                draw_sprite_ext(s_light_circle,0,(bbox_left+bbox_right)/2-view_xview[0],(bbox_top+bbox_bottom)/2-view_yview[0],scale,scale,0,c_black,1)
+                draw_sprite_ext(s_light_effect,0,(bbox_left+bbox_right)/2-view_xview[0],(bbox_top+bbox_bottom)/2-view_yview[0],scale,scale,0,c_black,1)
         }
     }
 
