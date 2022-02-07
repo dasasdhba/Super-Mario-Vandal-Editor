@@ -19,6 +19,7 @@ move_mode = 1
 
 velocity = 1
 ani = 0
+dir = 1
 
 scores = 100
 activate = false
@@ -63,7 +64,7 @@ if !global.pause
         if ani >= 10
         {
             ani = 0
-            image_xscale *= -1
+            dir *= -1
         }
 
         //attacked
@@ -125,4 +126,4 @@ action_id=603
 applies_to=self
 */
 if !out_of_frame()
-    draw_self()
+    draw_self_scale(dir*image_xscale,image_yscale)
