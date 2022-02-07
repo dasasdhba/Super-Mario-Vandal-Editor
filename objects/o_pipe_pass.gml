@@ -14,6 +14,8 @@ applies_to=self
 */
 if !global.pause && o_mario.pipe = 5 && place_meeting(x,y,o_mario)
 {
+    o_mario.pipe = -1
+
     FMODAllStop()
     global.musicplay = 0
     global.musicname = ""
