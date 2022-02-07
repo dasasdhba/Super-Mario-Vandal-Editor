@@ -1,6 +1,8 @@
 //background_clear()
 global.background = 0
 global.light = 0
+global.water_surface = 0
+global.water_gap = 0
 global.bg_num = 0
 global.fg_num = 0
 var i;

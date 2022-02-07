@@ -820,3 +820,25 @@ if global.bg_num > 0
     for(i=0;i<global.bg_num;i+=1)
         draw_bg(global.bg_index[i],global.bg_x[i],global.bg_y[i],global.bg_xscale[i],global.bg_yscale[i],global.bg_htiled[i],global.bg_vtiled[i],global.bg_blend[i],global.bg_alpha[i])
 }
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+//water surface
+if global.water_surface > 0 && global.water_gap > 0 && instance_number(o_water_surface_auto) > 0
+{
+    var i,j;
+    for(i=global.water_surface;i>0;i-=1)
+    {
+        j = 0
+        var draw_x;
+        draw_x = parallax_x((global.water_surface-i+1)/(global.water_surface+1))
+        draw_x += floor((view_xview[0]-draw_x)/960)*960
+        while( draw_x + 960*j < view_xview[0]+view_wview[0] )
+        {
+            draw_sprite_ext(s_water_effect,o_water_surface_auto.image_index,draw_x + 960*j,o_water_surface_auto.y-global.water_gap*i,1,1,0,c_white,o_water_surface_auto.image_alpha*(global.water_surface-i+1)/(global.water_surface+1))
+            j += 1
+        }
+    }
+}

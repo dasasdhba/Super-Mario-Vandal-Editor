@@ -216,6 +216,7 @@
 		|s_coin_effect
 		|s_star_effect
 		|s_light_effect
+		|s_water_effect
 	+system
 		|s_camera
 +mask
