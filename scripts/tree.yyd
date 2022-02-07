@@ -268,10 +268,10 @@
 +game
 	+background
 		+tool
+			|light_init
 			|background_clear
 			|parallax_x
 			|parallax_y
-			|light_init
 		+SMWP
 			|bg_day
 			|bg_day_tile
