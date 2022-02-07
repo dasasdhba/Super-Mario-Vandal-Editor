@@ -11,6 +11,8 @@
 			|s_pipe_exit
 			|s_pipe_warp_start
 			|s_pipe_warp_end
+			|s_pipe_jump
+			|s_pipe_pass
 		|s_mario
 		|s_HUD
 		|s_music_default

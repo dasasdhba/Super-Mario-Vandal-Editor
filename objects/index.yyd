@@ -211,3 +211,5 @@ o_block_switch
 
 o_switch
 o_camera_auto
+o_pipe_pass
+o_pipe_jump

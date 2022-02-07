@@ -214,3 +214,5 @@ s_switch_hidden
 s_camera_auto
 s_light_effect
 s_water_effect
+s_pipe_pass
+s_pipe_jump

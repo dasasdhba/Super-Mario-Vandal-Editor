@@ -11,6 +11,8 @@
 			|o_pipe_exit
 			|o_pipe_warp_start
 			|o_pipe_warp_end
+			|o_pipe_jump
+			|o_pipe_pass
 		|o_mario
 		|o_HUD
 		|o_music_default
