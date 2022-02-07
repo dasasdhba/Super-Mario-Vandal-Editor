@@ -12,7 +12,7 @@ if move_v > 0
     }
     if _dy != 0
     {
-        y += _dy
+        y -= _dy
         moving_turn_y()
     }
 
