@@ -21,6 +21,8 @@ wcenter = 0
 hcenter = 0
 
 f_count = 0
+
+create_center = false
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -63,6 +65,16 @@ if !global.pause
         while (phase < 0)
             phase += 360
         phase = phase mod 360
+
+        if !create_center
+        {
+            create_center = true
+            var tile;
+            tile = tile_add(tile_scenery_1,96,160,32,32,xcenter-16*wcenter,ycenter-16*hcenter,100000)
+            tile_set_scale(tile, wcenter, hcenter)
+            tile_set_blend(tile,image_blend)
+            tile_set_alpha(tile,image_alpha)
+        }
     }
 
     hurt_mario()
@@ -73,8 +85,5 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-if is_real(ID) && ( xcenter < view_xview[0]+view_xview[0] || xcenter+32*wcenter > view_xview[0] || ycenter < view_yview[0]+view_hview[0] || ycenter+32*hcenter > view_yview[0] )
-    draw_sprite_ext(s_roto_center, 0, xcenter-16*wcenter, ycenter-16*hcenter, wcenter, hcenter, 0, image_blend, image_alpha)
-
 if !out_of_frame()
     draw_self()
