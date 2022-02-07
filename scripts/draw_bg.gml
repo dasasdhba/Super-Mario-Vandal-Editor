@@ -1,4 +1,10 @@
 //draw_bg(back,x,y,xscale,yscale,htiled,vtild,colour,alpha)
+if argument5 && argument6
+{
+    draw_background_tiled_ext(argument0,argument1,argument3,argument3,argument4,argument7,argument8)
+    return true;
+}
+
 var _inframe;
 _inframe = draw_background_inframe(argument0, argument1, argument2, argument3, argument4, argument7, argument8)
 if argument5
@@ -43,3 +49,4 @@ if argument6
     while( draw_background_inframe(argument0, argument1, _cy+i*_height, argument3, argument4, argument7, argument8) )
         i -= 1
 }
+return true;
