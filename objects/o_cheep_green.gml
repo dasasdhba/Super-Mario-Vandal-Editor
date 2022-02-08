@@ -16,7 +16,7 @@ instance_init()
 
 xspeed = 3
 yspeed = 0.8
-float_time = 25
+float_time = 50
 
 dir = -1
 float = 0
