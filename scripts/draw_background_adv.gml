@@ -25,6 +25,7 @@ if argument3 != 0 && argument4 != 0
             i += 1
         }
 
+        return true;
     }
     else if argument6
     {
@@ -44,6 +45,7 @@ if argument3 != 0 && argument4 != 0
             i += 1
         }
 
+        return true;
     }
     else
     {
