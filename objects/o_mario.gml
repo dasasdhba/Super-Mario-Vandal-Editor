@@ -636,7 +636,7 @@ if !global.pause
             p_dir = p_dir mod 360
 
             //right
-            if p_dir = ( m_dir + 90 ) mod 360 && right && !left && ( gravity_state = 0 || gravity_water )
+            if p_dir = ( m_dir + 90 ) mod 360 && !crouch && right && !left && ( gravity_state = 0 || gravity_water )
             {
                 pipe = 1
                 image_angle = p_dir mod 360
@@ -716,7 +716,7 @@ if !global.pause
             }
 
             //left
-            if p_dir = ( m_dir + 270 ) mod 360 && left && !right && ( gravity_state = 0 || gravity_water )
+            if p_dir = ( m_dir + 270 ) mod 360 && !crouch && left && !right && ( gravity_state = 0 || gravity_water )
             {
                 pipe = 3
                 image_angle = ( p_dir + 180 ) mod 360
