@@ -138,7 +138,7 @@ if !draw_stop
 {
     //draw the text to the surface srf_text
     surface_set_target(srf_text)
-    draw_clear_alpha(c_black,0)
+    draw_clear_alpha(c_white,0)
     draw_set_font(global.font_HUD)
     draw_set_alpha(1)
     draw_set_color(c_white)
