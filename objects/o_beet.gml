@@ -7,7 +7,7 @@ applies_to=self
 event_user(0)
 mushroom = true
 
-sprite_fix_offset(13,32)
+sprite_fix_offset(14,32)
 image_speed = 0.1
 
 instance_init()
