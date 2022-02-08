@@ -21,5 +21,5 @@ applies_to=self
 if !global.pause
 {
     if instance_number(o_mario) > 0
-        image_yscale = min(10,10 + ( y - o_mario.y )/32.0)
+        image_yscale = max(10,10 + ( y - o_mario.y )/32.0)
 }
