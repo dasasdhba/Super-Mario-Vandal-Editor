@@ -100,7 +100,7 @@ if !global.pause
                 death.yflip = true
                 death.gravity_dir = gravity_dir
 
-                if atk != 5 && atk != 6
+                if atk < 5 || ( atk = 7 && !out_of_frame(64) )
                     audio_sound_play("kick_1")
             }
 

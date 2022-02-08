@@ -113,7 +113,7 @@ if !global.pause
                 death.gravity_v = -6
                 death.move_v = irandom(2) - irandom(2)
 
-                if atk != 5 && atk != 6
+                if atk < 5 || ( atk = 7 && !out_of_frame(64) )
                     audio_sound_play("kick_1")
             }
 
