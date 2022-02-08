@@ -7,11 +7,11 @@ applies_to=self
 instance_init()
 type = 0
 
-sprite_fix_offset(16,31)
+sprite_fix_offset(16,32)
 
 image_angle = 0
 image_yscale = 10
-y = 31
+y = 32
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
