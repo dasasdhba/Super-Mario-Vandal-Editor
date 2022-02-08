@@ -14,6 +14,7 @@ gravity_a = 0.2
 gravity_d = 0.2
 gravity_a_water = 0.2
 gravity_d_water = 0.2
+gravity_max_water = 10
 move_place = false
 move_v = 30/8.0
 move_dir = 270
