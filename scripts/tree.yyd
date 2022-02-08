@@ -6,8 +6,7 @@
 			|draw_sprite_part_rot
 			|draw_sprite_part_rot_ext
 			|draw_text_alpha
-			|draw_background_inframe
-			|draw_bg
+			|draw_background_adv
 		+sprite
 			|sprite_fix_offset
 			|sprite_duplicate_offset

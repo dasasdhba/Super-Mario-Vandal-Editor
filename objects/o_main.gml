@@ -818,7 +818,7 @@ if global.bg_num > 0
 {
     var i;
     for(i=0;i<global.bg_num;i+=1)
-        draw_bg(global.bg_index[i],global.bg_x[i],global.bg_y[i],global.bg_xscale[i],global.bg_yscale[i],global.bg_htiled[i],global.bg_vtiled[i],global.bg_blend[i],global.bg_alpha[i])
+        draw_background_adv(global.bg_index[i],global.bg_x[i],global.bg_y[i],global.bg_xscale[i],global.bg_yscale[i],global.bg_htiled[i],global.bg_vtiled[i],global.bg_blend[i],global.bg_alpha[i])
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1

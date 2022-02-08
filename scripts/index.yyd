@@ -316,8 +316,8 @@ bg_gp
 bg_underwater
 bg_lm2
 bg_hl
-draw_bg
-draw_background_inframe
+draw_background_adv
+
 hurt_mario
 instance_ignore
 instance_recover
