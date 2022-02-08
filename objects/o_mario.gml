@@ -31,7 +31,7 @@ max_v_run = 60
 
 //jump
 jump_v = 14
-swim_v = 4
+swim_v = 3.2
 jump_out_water = 10
 jump_out_water_floor = 12
 jump_add_stop = 0.4
