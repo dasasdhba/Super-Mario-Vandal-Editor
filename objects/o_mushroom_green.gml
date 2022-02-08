@@ -5,7 +5,7 @@ action_id=603
 applies_to=self
 */
 event_user(0)
-bonus_rise_v = 1.5
+bonus_rise_v = 1.6
 
 sprite_fix_offset(16,31)
 pause = -1
