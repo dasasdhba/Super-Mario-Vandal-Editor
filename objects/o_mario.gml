@@ -1025,6 +1025,7 @@ if !global.pause
                 mask_index = s_mask_mario_small
             }
 
+            physics_fix(x,y,90*(pipe - 7),1)
             pipe = 0
             move_state = 0
         }
