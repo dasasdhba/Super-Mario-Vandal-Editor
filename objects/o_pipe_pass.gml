@@ -17,8 +17,12 @@ if !global.pause && o_mario.pipe = 5 && place_meeting(x,y,o_mario)
     o_mario.pipe = -1
 
     FMODAllStop()
-    global.musicplay = 0
-    global.musicname = ""
+    var i;
+    for(i=0;i<=global.channel_max;i+=1)
+    {
+        global.musicplay[i] = 0
+        global.musicname[i] = ""
+    }
     audio_sound_play("level_pass")
 
     if instance_number(o_level_pass_small) = 0
