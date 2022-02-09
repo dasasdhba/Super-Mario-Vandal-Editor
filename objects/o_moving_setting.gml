@@ -14,6 +14,7 @@ stand_check = ""
 fall_check = ""
 reverse_turn = ""
 direction_turn = ""
+solid_turn = ""
 reverse = ""
 
 once = true
@@ -39,6 +40,7 @@ if !global.pause
         if is_real(fall_check) moving.fall_check = fall_check
         if is_real(reverse_turn) moving.reverse_turn = reverse_turn
         if is_real(direction_turn) moving.direction_turn = direction_turn
+        if is_real(solid_turn) moving.solid_turn = solid_turn
         if is_real(reverse) moving.reverse = reverse
         if once
             instance_destroy()
