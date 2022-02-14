@@ -45,7 +45,7 @@ if move_v > 0 && move_place
                 switch (move_mode)
                 {
                     case 0: move_v = 0; break;
-                    case 1: move_v += 180; break;
+                    case 1: move_dir += 180; break;
                     case 2: move_hit_ext = true; break;
                     default: break;
                 }
