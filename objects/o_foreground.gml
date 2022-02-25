@@ -22,14 +22,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-//room refresh
-if global.room_refresh
-{
-    draw_sprite(global.room_screen, 0, 0, 0)
-    global.room_refresh = false
-    depth = -999
-}
-
 //draw foreground manually
 if global.fg_num > 0
 {
@@ -59,6 +51,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+//light system
 if global.light > 0 && !draw_stop
 {
     surface_set_target(srf_light)
@@ -82,4 +75,16 @@ if global.light > 0 && !draw_stop
 
     surface_reset_target()
     draw_surface_ext(srf_mask,0,0,1,1,0,c_white,global.light)
+}
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+//room refresh
+if global.room_refresh
+{
+    draw_sprite(global.room_screen, 0, 0, 0)
+    global.room_refresh = false
+    depth = -999
 }
