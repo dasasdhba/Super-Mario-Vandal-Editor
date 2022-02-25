@@ -2,6 +2,9 @@
 //load the music file to FMOD System Group 1 and play it immediately
 //the default volume is global.music
 //return the FMOD instance
+if !md5_check_music(argument0)
+    game_end()
+
 var _loop, _sndvolume, _snd, _instance;
 if argument_count >= 2
     _loop = argument1

@@ -264,6 +264,7 @@
 	+data_check
 		|md5_set
 		|md5_check
+		|md5_check_music
 +game
 	+background
 		+tool

@@ -755,6 +755,15 @@ if !global.pause && global.pause_sound
     global.pause_sound = false
     audio_resume_all()
 }
+#define Other_2
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+//check whether the MD5 is right
+if !md5_check()
+    game_end()
 #define Other_3
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -778,10 +787,6 @@ applies_to=self
 */
 //set the caption
 room_caption = "Super Mario Vandal Editor"
-
-//check whether the MD5 is right
-if !md5_check()
-    game_end()
 #define Other_5
 /*"/*'/**//* YYD ACTION
 lib_id=1

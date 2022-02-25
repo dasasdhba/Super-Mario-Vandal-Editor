@@ -6,7 +6,7 @@ if !file_exists(".\Data\check.dat")
 
 var flist, ftext, fcheck;
 flist = file_text_open_read(".\Data\check.dat")
-fcheck = file_find_first(".\Data\Sound\*",0)
+fcheck = file_find_first(".\Data\Music\*",0)
 ftext = file_text_read_string(flist)
 file_text_readln(flist)
 while ( ftext != "********************************" )
@@ -18,7 +18,7 @@ while ( ftext != "********************************" )
     }
 
     var fread, text;
-    fread = file_text_open_read(".\Data\Sound\"+fcheck)
+    fread = file_text_open_read(".\Data\Music\"+fcheck)
     text = file_text_read_all(fread)
     file_text_close(fread)
     text += global.checkkey
@@ -35,7 +35,7 @@ while ( ftext != "********************************" )
     file_text_readln(flist)
 }
 
-fcheck = file_find_first(".\Data\Music\*",0)
+fcheck = file_find_first(".\Data\Sound\*",0)
 ftext = file_text_read_string(flist)
 file_text_readln(flist)
 while ( ftext != "********************************" )
@@ -47,7 +47,7 @@ while ( ftext != "********************************" )
     }
 
     var fread, text;
-    fread = file_text_open_read(".\Data\Music\"+fcheck)
+    fread = file_text_open_read(".\Data\Sound\"+fcheck)
     text = file_text_read_all(fread)
     file_text_close(fread)
     text += global.checkkey
