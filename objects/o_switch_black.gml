@@ -16,7 +16,7 @@ if !variable_local_exists("hidden")
     hidden = false
 
 block = o_block_black
-block_sprite = block.sprite_index
+block_sprite = s_block_black
 
 hit = false
 ani = 0

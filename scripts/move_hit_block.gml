@@ -26,7 +26,7 @@ if move_hit
     instance_recover()
 }
 
-if move_v > 0 && move_place
+if !_return && move_v > 0 && move_place
 {
     var block;
     do

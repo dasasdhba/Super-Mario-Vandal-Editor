@@ -23,7 +23,7 @@ if gravity_hit_up
 }
 
 
-if gravity_v < 0 && gravity_place
+if !_return && gravity_v < 0 && gravity_place
 {
     var block;
     do
