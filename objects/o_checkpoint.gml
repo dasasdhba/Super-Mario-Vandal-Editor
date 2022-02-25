@@ -8,6 +8,7 @@ instance_init()
 
 image_speed = 0
 activate_speed = 0.1
+room_init = false
 
 //mario reborn
 if global.checkpoint < 0
@@ -29,17 +30,7 @@ if global.checkpoint < 0
                     o_mario.image_angle = image_angle
                     o_mario.gravity_dir = image_angle + 270
                     o_mario.sprite_index = sprite_duplicate_offset(16,31,o_mario.sprite_index)
-                    //disable default music and background
-                    with(o_mario)
-                    {
-                        if place_meeting(x,y,o_music)
-                            with(o_music_default)
-                                instance_destroy()
-
-                        if place_meeting(x,y,o_background)
-                            with(o_background_default)
-                                instance_destroy()
-                    }
+                    room_init = true
 
                 }
             }
@@ -77,6 +68,29 @@ if !global.pause
     else
         image_play(1,2,activate_speed)
 
+}
+#define Step_1
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+if room_init
+{
+    room_init = false
+    with(o_mario)
+    {
+        //disable default music and background
+        if place_meeting(x,y,o_music)
+            with(o_music_default)
+                instance_destroy()
+        if place_meeting(x,y,o_background)
+            with(o_background_default)
+                instance_destroy()
+    }
+
+    with(o_camera_start)
+        event_user(1)
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION

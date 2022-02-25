@@ -8,7 +8,7 @@ instance_init()
 pause = -1
 
 bg = 0
-#define Other_4
+#define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -19,3 +19,5 @@ if global.background != bg
     background_clear()
     global.background = bg
 }
+
+instance_destroy()

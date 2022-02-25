@@ -53,13 +53,21 @@ if o_mario.bbox_right >= L && o_mario.bbox_left <= R && o_mario.bbox_bottom >= T
     with(o_music)
     {
         if x = _self.x + 32 && y = _self.y && view = 1
+        {
             view = 2
+            with(o_music_default)
+                instance_destroy()
+        }
     }
 
     with(o_background)
     {
         if x = _self.x + 32 && y = _self.y && view = 1
+        {
             view = 2
+            with(o_background_default)
+                instance_destroy()
+        }
     }
 
     with(o_water_height_instant)

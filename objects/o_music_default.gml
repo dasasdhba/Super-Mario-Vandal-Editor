@@ -15,7 +15,7 @@ volume = 1 //based on global.music
 //loop setting
 loop_start = -1
 loop_end = -1
-#define Other_4
+#define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -34,3 +34,5 @@ if music != "" && music != global.musicname[channel]
     if loop_start >= 0 && loop_end > loop_start
         FMODInstanceSetLoopPoints(global.musicplay[channel],loop_start,loop_end)
 }
+
+instance_destroy()
