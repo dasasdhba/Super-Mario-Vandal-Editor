@@ -1,4 +1,4 @@
-sprite=s_bros_fire
+sprite=s_bros_fireball
 visible=1
 solid=0
 persistent=0
