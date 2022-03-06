@@ -50,8 +50,6 @@ if !global.pause
     || ( ( gravity_dir >= 315 || gravity_dir <= 45 ) && x >= room_width + f_height )
         instance_destroy()
 
-    if water_in
-        audio_sound_play("splash")
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION

@@ -83,7 +83,7 @@ if !global.pause
 
                     audio_sound_play("fireball")
                     var fireball;
-                    fireball = instance_create(x,y,o_fireball_piranha)
+                    fireball = instance_create(x,y,o_fireball_paranha)
                     fireball.image_xscale = image_xscale
                     fireball.image_yscale = image_yscale
                     if dir >= 45 && dir <= 135
