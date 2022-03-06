@@ -1,4 +1,13 @@
 //md5_check_music(musicname)
+var musicext;
+if global.musicencrypt
+    musicext = global.audiocryptext
+else
+    musicext = global.audioext
+
+if !file_exists(".\Data\Music"+argument0 + "." + musicext)
+    return true;
+
 if !file_exists(".\Data\check.dat")
     return false;
 
@@ -9,11 +18,6 @@ ftext = file_text_read_string(flist)
 file_text_readln(flist)
 while ( ftext != "********************************" )
 {
-    var musicext;
-    if global.musicencrypt
-        musicext = global.audiocryptext
-    else
-        musicext = global.audioext
     if fcheck = argument0 + "." + musicext
     {
         file_text_close(flist)
@@ -36,4 +40,4 @@ while ( ftext != "********************************" )
 }
 
 file_text_close(flist)
-return false;
+return true;
