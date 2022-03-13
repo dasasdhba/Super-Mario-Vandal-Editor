@@ -36,12 +36,23 @@ action_id=603
 applies_to=self
 */
 //first activate
-var L, T, R, B;
-L = x - view_wview[0]/2
-T = y - view_hview[0]/2
-R = x + view_wview[0]/2
-B = y + view_hview[0]/2
-if o_mario.bbox_right >= L && o_mario.bbox_left <= R && o_mario.bbox_bottom >= T && o_mario.bbox_top <= B
+o_mario.camera_auto = 99999999
+
+with(o_camera_auto)
+{
+    var L, T, R, B;
+    L = x - view_wview[0]/2
+    T = y - view_hview[0]/2
+    R = x + view_wview[0]/2
+    B = y + view_hview[0]/2
+    if o_mario.bbox_right >= L && o_mario.bbox_left <= R && o_mario.bbox_bottom >= T && o_mario.bbox_top <= B
+    {
+        if o_mario.camera_auto > ID
+            o_mario.camera_auto = ID
+    }
+}
+
+if ID = o_mario.camera_auto
     first = true
 #define Other_11
 /*"/*'/**//* YYD ACTION
