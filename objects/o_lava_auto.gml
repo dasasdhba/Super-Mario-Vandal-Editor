@@ -39,8 +39,8 @@ with(lava)
 {
     visible = false
     x = o_camera.L
-    image_xscale = ( o_camera.R - x + 96 )/32.0
-    image_yscale = ( o_camera.B - y + 96 )/32.0
+    image_xscale = ( max(0, o_camera.R - x) + 96 )/32.0
+    image_yscale = ( max(0, o_camera.B - y) + 96 )/32.0
 }
 #define Draw_0
 /*"/*'/**//* YYD ACTION
