@@ -240,6 +240,7 @@ if !global.pause
                 r_count += 1
                 if r_count >= reborn + r_random
                 {
+                    r_count = 0
                     r_random = irandom(reborn_random)
                     death = false
                     gravity_state = -1
