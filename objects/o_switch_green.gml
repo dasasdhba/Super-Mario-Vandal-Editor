@@ -19,4 +19,5 @@ block = o_block_green
 block_sprite = s_block_green
 
 hit = false
+hit_delay = false
 ani = 0

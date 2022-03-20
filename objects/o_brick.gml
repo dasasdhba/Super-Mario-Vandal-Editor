@@ -16,6 +16,7 @@ if !variable_local_exists("hidden")
     hidden = false
 
 hit = false
+hit_delay = false
 coin = 1
 scores = 50
 coin_brick = false
@@ -139,76 +140,78 @@ if !global.pause
                 item.depth = depth + 1
             }
         }
-        else if coin_brick
+        else if !hit_delay
         {
-            hit = false
-
-            if count = -1
-                count = 0
-
-            audio_sound_play("coin")
-            var c;
-            c = instance_create(x-32*image_yscale*sind(image_angle),y-32*image_yscale*cosd(image_angle), o_coin_effect)
-            c.image_xscale = image_xscale
-            c.image_yscale = image_yscale
-            c.image_angle = image_angle
-            c.gravity_dir = image_angle - 90
-            c.coin = coin
-
-            if count < coin_time
+            if coin_brick
             {
-                bump = true
-                ani = 8
+                if count = -1
+                    count = 0
+
+                audio_sound_play("coin")
+                var c;
+                c = instance_create(x-32*image_yscale*sind(image_angle),y-32*image_yscale*cosd(image_angle), o_coin_effect)
+                c.image_xscale = image_xscale
+                c.image_yscale = image_yscale
+                c.image_angle = image_angle
+                c.gravity_dir = image_angle - 90
+                c.coin = coin
+
+                if count < coin_time
+                {
+                    bump = true
+                    hit_delay = true
+                    ani = 8
+                }
+                else
+                {
+                    hit_delay = false
+                    create = true
+                    ani = 8
+                }
             }
             else
             {
-                hit = true
-                create = true
-                ani = 8
+                audio_sound_play("break")
+                var f;
+                f = instance_create(x+4, y+4, o_brick_fragment)
+                f.image_xscale = image_xscale
+                f.image_yscale = image_yscale
+                f.image_angle = image_angle
+                f.gravity_dir = image_angle-90
+                f.move_dir = image_angle
+                f.gravity_v = -7
+                f.move_v = 4
+
+                f = instance_create(x-4, y+4, o_brick_fragment)
+                f.image_xscale = image_xscale
+                f.image_yscale = image_yscale
+                f.image_angle = image_angle
+                f.gravity_dir = image_angle-90
+                f.move_dir = image_angle
+                f.gravity_v = -7
+                f.move_v = -4
+
+                f = instance_create(x+4, y-4, o_brick_fragment)
+                f.image_xscale = image_xscale
+                f.image_yscale = image_yscale
+                f.image_angle = image_angle
+                f.gravity_dir = image_angle-90
+                f.move_dir = image_angle
+                f.gravity_v = -8
+                f.move_v = 2
+
+                f = instance_create(x-4, y-4, o_brick_fragment)
+                f.image_xscale = image_xscale
+                f.image_yscale = image_yscale
+                f.image_angle = image_angle
+                f.gravity_dir = image_angle-90
+                f.move_dir = image_angle
+                f.gravity_v = -8
+                f.move_v = -2
+
+                global.scores += scores
+                instance_destroy()
             }
-        }
-        else
-        {
-            audio_sound_play("break")
-            var f;
-            f = instance_create(x+4, y+4, o_brick_fragment)
-            f.image_xscale = image_xscale
-            f.image_yscale = image_yscale
-            f.image_angle = image_angle
-            f.gravity_dir = image_angle-90
-            f.move_dir = image_angle
-            f.gravity_v = -7
-            f.move_v = 4
-
-            f = instance_create(x-4, y+4, o_brick_fragment)
-            f.image_xscale = image_xscale
-            f.image_yscale = image_yscale
-            f.image_angle = image_angle
-            f.gravity_dir = image_angle-90
-            f.move_dir = image_angle
-            f.gravity_v = -7
-            f.move_v = -4
-
-            f = instance_create(x+4, y-4, o_brick_fragment)
-            f.image_xscale = image_xscale
-            f.image_yscale = image_yscale
-            f.image_angle = image_angle
-            f.gravity_dir = image_angle-90
-            f.move_dir = image_angle
-            f.gravity_v = -8
-            f.move_v = 2
-
-            f = instance_create(x-4, y-4, o_brick_fragment)
-            f.image_xscale = image_xscale
-            f.image_yscale = image_yscale
-            f.image_angle = image_angle
-            f.gravity_dir = image_angle-90
-            f.move_dir = image_angle
-            f.gravity_v = -8
-            f.move_v = -2
-
-            global.scores += scores
-            instance_destroy()
         }
 
     }
@@ -223,7 +226,14 @@ if !global.pause
 
     //bump
     if bump && ani = 0
+    {
         bump = false
+        if hit_delay
+        {
+            hit_delay = false
+            hit = false
+        }
+    }
 
 }
 #define Draw_0

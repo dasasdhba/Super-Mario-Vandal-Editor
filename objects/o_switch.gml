@@ -44,9 +44,9 @@ if !global.pause
     }
 
     //switch
-    if hit
+    if hit && !hit_delay
     {
-        hit = false
+        hit_delay = true
         ani = 8
         audio_sound_play("switch")
         with(block)
@@ -55,7 +55,14 @@ if !global.pause
 
     //hit animation
     if ani > 0
+    {
         ani -= 1
+        if ani = 0 && hit_delay
+        {
+            hit_delay = false
+            hit = false
+        }
+    }
 
 }
 #define Draw_0

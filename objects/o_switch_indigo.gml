@@ -19,4 +19,5 @@ block = o_block_indigo
 block_sprite = s_block_indigo
 
 hit = false
+hit_delay = false
 ani = 0
