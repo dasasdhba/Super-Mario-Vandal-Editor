@@ -779,6 +779,7 @@ UnloadFMOD()
 ds_list_destroy(global.music_id_list)
 ds_list_destroy(global.music_instance_list)
 ds_list_destroy(global.sprite_list)
+ds_list_destroy(global.physics_object)
 #define Other_4
 /*"/*'/**//* YYD ACTION
 lib_id=1
