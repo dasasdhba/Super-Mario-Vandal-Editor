@@ -152,6 +152,41 @@ if gravity_state = 1
             gravity_v = 0
             gravity_state = 0
             gravity_hit_down = true
+            //check moving solid/platform
+            var _moving;
+            do
+            {
+                _moving = instance_place_round(x+cosd(gravity_dir),y-sind(gravity_dir),o_solid_moving)
+                if _moving
+                {
+                    if _moving.type = 0 || _moving.type = phy_type
+                    {
+                        _moving.stand_id[_moving.stand_n] = id
+                        _moving.stand_n += 1
+                    }
+
+                    instance_ignore(_moving)
+                }
+            }
+            until( !_moving )
+            instance_recover()
+
+            do
+            {
+                _moving = instance_place_round(x+cosd(gravity_dir),y-sind(gravity_dir),o_platform_moving)
+                if _moving
+                {
+                    if ( _moving.type = 0 || _moving.type = phy_type ) && !place_meeting_round(x,y,_moving)
+                    {
+                        _moving.stand_id[_moving.stand_n] = id
+                        _moving.stand_n += 1
+                    }
+
+                    instance_ignore(_moving)
+                }
+            }
+            until( !_moving )
+            instance_recover()
         }
     }
 }
